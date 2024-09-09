@@ -1,5 +1,6 @@
 package vn.edu.usth.stockdashboard;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -61,7 +62,35 @@ public class Chart extends Fragment {
         itemList.add(new item(R.drawable.nflx, R.drawable.nflxchart, R.drawable.nflxpercent));
 
 
-        MyAdapter2 myAdapter = new MyAdapter2(itemList);
+        MyAdapter2 myAdapter = new MyAdapter2(itemList, position -> {
+            int[] newImages = new int[2];
+
+            // Assign different images based on the clicked position
+            switch (position) {
+                case 0: // First CardView clicked
+                    newImages = new int[]{R.drawable.amznfull, R.drawable.amzngraph};
+                    break;
+                case 1: // Second CardView clicked
+                    newImages = new int[]{R.drawable.msftfull, R.drawable.msftgraph};
+                    break;
+                case 2: // Third CardView clicked
+                    newImages = new int[]{R.drawable.teslafull, R.drawable.teslagraph};
+                    break;
+                case 3: // Fourth CardView clicked
+                    newImages = new int[]{R.drawable.spotfull, R.drawable.spotgraph};
+                    break;
+                case 4: // Fifth CardView clicked
+                    newImages = new int[]{R.drawable.nflxfull, R.drawable.nflxgraph};
+                    break;
+            }
+
+            // Start DetailActivity with the corresponding images
+            Intent intent = new Intent(getActivity(), DetailActivity.class);
+            intent.putExtra("image1", newImages[0]);
+            intent.putExtra("image2", newImages[1]);
+            startActivity(intent);
+        });
+
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
 
