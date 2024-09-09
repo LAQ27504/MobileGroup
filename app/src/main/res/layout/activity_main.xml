@@ -5,11 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-    tools:context=".MainActivity"/>
-=======
     android:background="#1E2632"
-    tools:context=".stMainActivity">
+    tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/imgLogin"
@@ -106,4 +103,3 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
->>>>>>> min
