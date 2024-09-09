@@ -57,9 +57,6 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
             imageView = itemView.findViewById(R.id.logo_view);
             imageView2 = itemView.findViewById(R.id.item_chart);
             imageView3 = itemView.findViewById(R.id.item_percent);
-<<<<<<< HEAD
-=======
-
             itemView.setOnClickListener(v -> {
                 if (listener != null) {
                     int position = getAdapterPosition();
@@ -68,7 +65,6 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
                     }
                 }
             });
->>>>>>> 5794b291ce50f1a9242bba5fe87d333b5ebcc788
         }
     }
 }
