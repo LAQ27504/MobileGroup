@@ -43,4 +43,29 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="AMZN">AMZN</string>
+    <string name="Amazon_com_inc">Amazon.com inc.</string>
+    <string name="amazon_stock">2.45%</string>
+    <string name="amazon_term">1 year return</string>
+    <string name="hourly_term">Hourly</string>
+    <string name="amazon_stock_line">Amazon Stock Line</string>
+    <string name="buy_coin_button">BUY COIN</string>
+    <string name="app_logo">App Logo</string>
+    <string name="my_account">My Account</string>
+    <string name="profile_icon">Profile Icon</string>
+    <string name="profile_name">Nguyen Van A</string>
+    <string name="profile_email">anv.22bi13000@usth.edu.vn</string>
+    <string name="help_button">Help and Resources</string>
+    <string name="conditions_button">Terms and conditions</string>
+    <string name="logout_button">Logout</string>
+    <string name="home_icon">Home Icon</string>
+    <string name="analytics">Analytics</string>
+    <string name="credit_card">Credit card</string>
+    <string name="help_icon">Help icon</string>
+    <string name="chevron_icon">Chevron</string>
+    <string name="term_icon">term icon</string>
+    <string name="logout_icon">logout icon</string>
+    <string name="user_profile">User profile</string>
 </resources>
