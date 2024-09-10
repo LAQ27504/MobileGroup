@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     private List<item> itemList;
 
     public MyAdapter(List<item> itemList) {
@@ -34,24 +34,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         item item = itemList.get(position);
-        holder.imageView.setImageResource(item.getImageID());
-        holder.imageView2.setImageResource(item.getChart());
-        holder.imageView3.setImageResource(item.getPercent());
+        holder.getImageView().setImageResource(item.getImageID());
+        holder.getImageView2().setImageResource(item.getChart());
+        holder.getImageView().setImageResource(item.getPercent());
 
-    }
-
-
-    class MyViewHolder extends RecyclerView.ViewHolder {
-        private CardView cardView;
-        private ImageView imageView;
-        private ImageView imageView2;
-        private ImageView imageView3;
-        public MyViewHolder(@NonNull View itemView) {
-            super(itemView);
-            cardView = itemView.findViewById(R.id.cardview);
-            imageView = itemView.findViewById(R.id.logo_view);
-            imageView2 = itemView.findViewById(R.id.item_chart);
-            imageView3 = itemView.findViewById(R.id.item_percent);
-        }
     }
 }
