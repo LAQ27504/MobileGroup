@@ -19,15 +19,12 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-=======
-import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
->>>>>>> tbn
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-<<<<<<< HEAD
         setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -77,9 +73,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_graph);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
-=======
+        return NavigationUI.navigateUp(navController, appBarConfiguration) || super.onSupportNavigateUp();
         setContentView(layout.activity_main);
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
@@ -95,6 +89,5 @@ public class MainActivity extends AppCompatActivity {
                     .replace(R.id.fragment_container, new Home())
                     .commit();
         }
->>>>>>> tbn
     }
 }
