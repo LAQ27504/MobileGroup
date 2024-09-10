@@ -68,4 +68,6 @@
     <string name="term_icon">term icon</string>
     <string name="logout_icon">logout icon</string>
     <string name="user_profile">User profile</string>
+    <string name="back_button_icon">Back Button</string>
+    <string name="noti_icon">Notifications icon</string>
 </resources>
