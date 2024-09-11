@@ -1,5 +1,22 @@
 <resources>
-    <string name="app_name">StockDashBoard</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">Stock Dashboard</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="back_button">Back Button</string>
+    <string name="contact">Contact us at:</string>
+    <string name="chat_button">Chat Button</string>
+    <string name="contact_link">discordlink.usth.edu.vn</string>
+    <string name="conditions_intro">1. Introduction</string>
+    <string name="eligibility">1.1 Eligibility:</string>
+    <string name="eligibility_content">You must be at least 18 years old and legally capable of entering into binding agreements to use the App.</string>
+    <string name="user_obligations">2. User Obligations</string>
+    <string name="account_registration">2.1 Account Registration</string>
+    <string name="account_registration_content">To access certain features of the App, you may need to register for an account. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</string>
+    <string name="stockmarket_data_info">3. Stock Market Data and Information</string>
+    <string name="third_party_data">3.1 Third-Party Data:</string>
+    <string name="third_party_data_content">The App may include data from third-party sources. We do not control and are not responsible for the accuracy, availability, or reliability of third-party content.</string>
+    <string name="market_risks">3.2 Market Risks:</string>
+    <string name="market_risks_content">The stock market involves inherent risks. Users acknowledge and accept these risks and agree that the App shall not be held responsible for any losses resulting from market activities.</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -43,8 +60,6 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="AMZN">AMZN</string>
     <string name="Amazon_com_inc">Amazon.com inc.</string>
     <string name="amazon_stock">2.45%</string>
