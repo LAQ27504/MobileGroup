@@ -1,27 +1,36 @@
 package vn.edu.usth.stockdashboard;
 
-import static vn.edu.usth.stockdashboard.R.*;
-
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.List;
+public class DetailActivity extends AppCompatActivity {
 
-public class MainActivity extends AppCompatActivity {
-
+    private ImageView detailImage1, detailImage2, backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(layout.activity_main);
+        setContentView(R.layout.activity_detail);
+
+        detailImage1 = findViewById(R.id.detail_image1);
+        detailImage2 = findViewById(R.id.detail_image2);
+        backButton = findViewById(R.id.backbutton);
+
+        // Get data from intent
+        int image1 = getIntent().getIntExtra("image1", 0);
+        int image2 = getIntent().getIntExtra("image2", 0);
+
+
+        // Set images to ImageViews
+        detailImage1.setImageResource(image1);
+        detailImage2.setImageResource(image2);
+
+        backButton.setOnClickListener(v -> {
+            finish();
+        });
 
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
@@ -31,17 +40,5 @@ public class MainActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
                         | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-
-
-
-
-
-        if (savedInstanceState == null) {
-            // Add Home fragment to the fragment container
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new Chart())
-                    .commit();
-
-        }
     }
 }
