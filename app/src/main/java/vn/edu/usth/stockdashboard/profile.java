@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
@@ -23,6 +24,7 @@ import java.util.List;
 public class profile extends Fragment {
     private ImageView icon1, icon2, icon3, icon4;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -33,6 +35,8 @@ public class profile extends Fragment {
         icon2 = view.findViewById(R.id.chart);
         icon3 = view.findViewById(R.id.pay);
         icon4 = view.findViewById(R.id.profile);
+        LinearLayout help_button = view.findViewById(R.id.help_button);
+        LinearLayout conditions_button = view.findViewById(R.id.term_and_conditions_button);
 
 
         icon1.setOnClickListener(v -> {
@@ -49,6 +53,14 @@ public class profile extends Fragment {
 
         icon4.setOnClickListener(v -> {
             navigateToFragment(new profile());
+        });
+
+        help_button.setOnClickListener(v -> {
+            navigateToFragment(new HelpAndResourcesFragment());
+        });
+
+        conditions_button.setOnClickListener(v -> {
+            navigateToFragment(new TermsAndConditionsFragment());
         });
         return view;
     }

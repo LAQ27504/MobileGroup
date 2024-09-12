@@ -49,9 +49,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             cardView = itemView.findViewById(R.id.cardview);
-            imageView=itemView.findViewById(R.id.logo_view);
-            imageView2=itemView.findViewById(R.id.item_chart);
-            imageView3=itemView.findViewById(R.id.item_percent);
+            imageView = itemView.findViewById(R.id.logo_view);
+            imageView2 = itemView.findViewById(R.id.item_chart);
+            imageView3 = itemView.findViewById(R.id.item_percent);
         }
     }
 }
