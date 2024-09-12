@@ -16,8 +16,9 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
     private OnItemClickListener listener;
 
     public interface OnItemClickListener {
-        void onItemClick(int position);
+        void onItemClick(item clikedItem);
     }
+
     public MyAdapter2(List<item> itemList, OnItemClickListener listener) {
         this.itemList = itemList;
         this.listener = listener;
@@ -38,10 +39,17 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        item item = itemList.get(position);
-        holder.imageView.setImageResource(item.getImageID());
-        holder.imageView2.setImageResource(item.getChart());
-        holder.imageView3.setImageResource(item.getPercent());
+        item currentItem = itemList.get(position);
+
+        holder.imageView.setImageResource(currentItem.getImageID());
+        holder.imageView2.setImageResource(currentItem.getChart());
+        holder.imageView3.setImageResource(currentItem.getPercent());
+
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onItemClick(currentItem); // Passing the entire item object
+            }
+        });
 
     }
 
@@ -58,14 +66,6 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
             imageView2 = itemView.findViewById(R.id.item_chart);
             imageView3 = itemView.findViewById(R.id.item_percent);
 
-            itemView.setOnClickListener(v -> {
-                if (listener != null) {
-                    int position = getAdapterPosition();
-                    if (position != RecyclerView.NO_POSITION) {
-                        listener.onItemClick(position);
-                    }
-                }
-            });
         }
     }
 }

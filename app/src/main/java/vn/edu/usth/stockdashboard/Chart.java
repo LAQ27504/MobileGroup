@@ -24,6 +24,7 @@ import java.util.List;
 public class Chart extends Fragment {
     private RecyclerView recyclerView;
     private ImageView icon1, icon2, icon3, icon4;
+    private MyAdapter2 myAdapter;
 
     @Nullable
     @Override
@@ -55,39 +56,18 @@ public class Chart extends Fragment {
 
         recyclerView = view.findViewById(R.id.recycle_view);
         List<item> itemList = new ArrayList<>();
-        itemList.add(new item(R.drawable.amazon, R.drawable.amazon_chart, R.drawable.amazon_percent));
-        itemList.add(new item(R.drawable.msft, R.drawable.msft_chart, R.drawable.msft_percent));
-        itemList.add(new item(R.drawable.tesla, R.drawable.tesla_chart, R.drawable.tesla_percent));
-        itemList.add(new item(R.drawable.spot, R.drawable.spotchart, R.drawable.spotpercent));
-        itemList.add(new item(R.drawable.nflx, R.drawable.nflxchart, R.drawable.nflxpercent));
+        itemList.add(new item(R.drawable.amazon, R.drawable.amazon_chart, R.drawable.amazon_percent, R.drawable.amznfull, R.drawable.amzngraph));
+        itemList.add(new item(R.drawable.msft, R.drawable.msft_chart, R.drawable.msft_percent, R.drawable.msftfull, R.drawable.msftgraph));
+        itemList.add(new item(R.drawable.tesla, R.drawable.tesla_chart, R.drawable.tesla_percent, R.drawable.teslafull, R.drawable.teslagraph));
+        itemList.add(new item(R.drawable.spot, R.drawable.spotchart, R.drawable.spotpercent, R.drawable.spotfull, R.drawable.spotgraph));
+        itemList.add(new item(R.drawable.nflx, R.drawable.nflxchart, R.drawable.nflxpercent, R.drawable.nflxfull, R.drawable.nflxgraph));
 
-
-        MyAdapter2 myAdapter = new MyAdapter2(itemList, position -> {
-            int[] newImages = new int[2];
-
-            // Assign different images based on the clicked position
-            switch (position) {
-                case 0: // First CardView clicked
-                    newImages = new int[]{R.drawable.amznfull, R.drawable.amzngraph};
-                    break;
-                case 1: // Second CardView clicked
-                    newImages = new int[]{R.drawable.msftfull, R.drawable.msftgraph};
-                    break;
-                case 2: // Third CardView clicked
-                    newImages = new int[]{R.drawable.teslafull, R.drawable.teslagraph};
-                    break;
-                case 3: // Fourth CardView clicked
-                    newImages = new int[]{R.drawable.spotfull, R.drawable.spotgraph};
-                    break;
-                case 4: // Fifth CardView clicked
-                    newImages = new int[]{R.drawable.nflxfull, R.drawable.nflxgraph};
-                    break;
-            }
-
-            // Start DetailActivity with the corresponding images
+        // Initialize the adapter with the item list and a click listener
+        myAdapter = new MyAdapter2(itemList, clickedItem -> {
+            // Pass the clicked item's full and graph images to DetailActivity
             Intent intent = new Intent(getActivity(), DetailActivity.class);
-            intent.putExtra("image1", newImages[0]);
-            intent.putExtra("image2", newImages[1]);
+            intent.putExtra("image1", clickedItem.getFullImage());
+            intent.putExtra("image2", clickedItem.getGraphImage());
             startActivity(intent);
         });
 
@@ -95,6 +75,13 @@ public class Chart extends Fragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
 
         return view;
+    }
+
+    private void moveToDetailActivity(item clickedItem) {
+        Intent intent = new Intent(getActivity(), DetailActivity.class);
+        intent.putExtra("image1", clickedItem.getFullImage());
+        intent.putExtra("image2", clickedItem.getGraphImage());
+        startActivity(intent);
     }
 
     private void navigateToFragment(Fragment fragment) {

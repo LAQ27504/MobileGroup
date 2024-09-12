@@ -54,10 +54,9 @@ public class Home extends Fragment {
 
         recyclerView = view.findViewById(R.id.recycle_view);  // Use the view object to find the RecyclerView
         List<item> itemList = new ArrayList<>();
-        itemList.add(new item(R.drawable.amazon, R.drawable.amazon_chart, R.drawable.amazon_percent));
-        itemList.add(new item(R.drawable.msft, R.drawable.msft_chart, R.drawable.msft_percent));
-        itemList.add(new item(R.drawable.tesla, R.drawable.tesla_chart, R.drawable.tesla_percent));
-
+        itemList.add(new item(R.drawable.amazon, R.drawable.amazon_chart, R.drawable.amazon_percent, R.drawable.amznfull, R.drawable.amzngraph));
+        itemList.add(new item(R.drawable.msft, R.drawable.msft_chart, R.drawable.msft_percent, R.drawable.msftfull, R.drawable.msftgraph));
+        itemList.add(new item(R.drawable.tesla, R.drawable.tesla_chart, R.drawable.tesla_percent, R.drawable.teslafull, R.drawable.teslagraph));
         MyAdapter myAdapter = new MyAdapter(itemList);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
