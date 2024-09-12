@@ -47,14 +47,23 @@ public class Chart extends Fragment {
 
         // Set onClick listeners for each TextView
         MostViewed.setOnClickListener(v -> {
+            MostViewed.setBackgroundResource(R.drawable.textbar1);
+            TopGainers.setBackgroundResource(R.drawable.textbar_unselected);
+            TopLosers.setBackgroundResource(R.drawable.textbar_unselected);
             myAdapter.updateList(mostViewedItems);  // Update adapter with Most Viewed items
         });
 
         TopGainers.setOnClickListener(v -> {
+            MostViewed.setBackgroundResource(R.drawable.textbar_unselected);
+            TopGainers.setBackgroundResource(R.drawable.textbar1);
+            TopLosers.setBackgroundResource(R.drawable.textbar_unselected);
             myAdapter.updateList(topGainersItems);  // Update adapter with Top Gainers items
         });
 
         TopLosers.setOnClickListener(v -> {
+            MostViewed.setBackgroundResource(R.drawable.textbar_unselected);
+            TopGainers.setBackgroundResource(R.drawable.textbar_unselected);
+            TopLosers.setBackgroundResource(R.drawable.textbar1);
             myAdapter.updateList(topLosersItems);  // Update adapter with Top Losers items
         });
 
