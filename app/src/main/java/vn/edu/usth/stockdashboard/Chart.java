@@ -24,7 +24,7 @@ import java.util.List;
 public class Chart extends Fragment {
     private RecyclerView recyclerView;
     private ImageView icon1, icon2, icon3, icon4;
-    private MyAdapter2 myAdapter;
+    private MyAdapter myAdapter;
 
     @Nullable
     @Override
@@ -63,7 +63,7 @@ public class Chart extends Fragment {
         itemList.add(new item(R.drawable.nflx, R.drawable.nflxchart, R.drawable.nflxpercent, R.drawable.nflxfull, R.drawable.nflxgraph));
 
         // Initialize the adapter with the item list and a click listener
-        myAdapter = new MyAdapter2(itemList, clickedItem -> {
+        myAdapter = new MyAdapter(itemList, clickedItem -> {
             // Pass the clicked item's full and graph images to DetailActivity
             Intent intent = new Intent(getActivity(), DetailActivity.class);
             intent.putExtra("image1", clickedItem.getFullImage());

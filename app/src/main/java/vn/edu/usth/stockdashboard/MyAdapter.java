@@ -13,9 +13,15 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private List<item> itemList;
+    private OnItemClickListener listener;
 
-    public MyAdapter(List<item> itemList) {
+    public interface OnItemClickListener {
+        void onItemClick(item clikedItem);
+    }
+
+    public MyAdapter(List<item> itemList, OnItemClickListener listener) {
         this.itemList = itemList;
+        this.listener = listener;
     }
 
 
@@ -23,7 +29,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item,parent,false);
-        return new MyViewHolder(view);
+        return new MyViewHolder(view, listener);
     }
 
     @Override
@@ -33,10 +39,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        item item = itemList.get(position);
-        holder.imageView.setImageResource(item.getImageID());
-        holder.imageView2.setImageResource(item.getChart());
-        holder.imageView3.setImageResource(item.getPercent());
+        item currentItem = itemList.get(position);
+
+        holder.imageView.setImageResource(currentItem.getImageID());
+        holder.imageView2.setImageResource(currentItem.getChart());
+        holder.imageView3.setImageResource(currentItem.getPercent());
+
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onItemClick(currentItem);
+            }
+        });
 
     }
 
@@ -46,12 +59,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         private ImageView imageView;
         private ImageView imageView2;
         private ImageView imageView3;
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             cardView = itemView.findViewById(R.id.cardview);
             imageView = itemView.findViewById(R.id.logo_view);
             imageView2 = itemView.findViewById(R.id.item_chart);
             imageView3 = itemView.findViewById(R.id.item_percent);
+
         }
     }
 }
