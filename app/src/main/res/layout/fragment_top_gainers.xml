@@ -6,12 +6,6 @@
     android:background="#1E2632"
     tools:context=".TopGainers">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="800dp"
-        android:orientation="vertical">
-
-    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle_view"
