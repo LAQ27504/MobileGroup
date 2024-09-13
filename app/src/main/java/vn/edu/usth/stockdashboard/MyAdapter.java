@@ -1,5 +1,6 @@
 package vn.edu.usth.stockdashboard;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +37,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         item item = itemList.get(position);
         holder.getImageView().setImageResource(item.getImageID());
         holder.getImageView2().setImageResource(item.getChart());
-        holder.getImageView().setImageResource(item.getPercent());
+        holder.getImageView3().setImageResource(item.getPercent());
 
     }
 }

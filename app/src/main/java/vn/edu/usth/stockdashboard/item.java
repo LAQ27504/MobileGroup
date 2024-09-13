@@ -10,7 +10,7 @@ public class item {
     public item(int imageID, int chart, int percent, int fullImage, int graphImage) {
         this.imageID = imageID;
         this.chart = chart;
-        this.percent=percent;
+        this.percent = percent;
         this.fullImage = fullImage;
         this.graphImage = graphImage;
     }
@@ -19,16 +19,8 @@ public class item {
         return imageID;
     }
 
-    public void setImageID(int imageID) {
-        this.imageID = imageID;
-    }
-
     public int getPercent() {
         return percent;
-    }
-
-    public void setPercent(int percent) {
-        this.percent = percent;
     }
 
     public int getChart() {
@@ -38,6 +30,7 @@ public class item {
     public void setChart(int chart) {
         this.chart = chart;
     }
+
     public int getFullImage() {
         return fullImage;
     }

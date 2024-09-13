@@ -77,13 +77,6 @@ public class Chart extends Fragment {
         return view;
     }
 
-    private void moveToDetailActivity(item clickedItem) {
-        Intent intent = new Intent(getActivity(), DetailActivity.class);
-        intent.putExtra("image1", clickedItem.getFullImage());
-        intent.putExtra("image2", clickedItem.getGraphImage());
-        startActivity(intent);
-    }
-
     private void navigateToFragment(Fragment fragment) {
         FragmentManager fragmentManager = getParentFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
