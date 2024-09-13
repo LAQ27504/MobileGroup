@@ -28,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        LoginFragment loginFragment = new LoginFragment();
-
-        getSupportFragmentManager().beginTransaction().add(R.id.main, loginFragment).commit();
+//
+//        LoginFragment loginFragment = new LoginFragment();
+//
+//        getSupportFragmentManager().beginTransaction().add(R.id.main, loginFragment).commit();
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
