@@ -4,6 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import android.view.View;
+import android.widget.ImageView;
+
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+
 public class ViewPagerAdapter extends FragmentStateAdapter {
 
     public ViewPagerAdapter(@NonNull Fragment fragment) {
@@ -24,6 +30,7 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
                 return new MostViewed();
         }
     }
+
 
     @Override
     public int getItemCount() {
