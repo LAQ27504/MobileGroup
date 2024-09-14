@@ -1,62 +1,49 @@
 package vn.edu.usth.stockdashboard;
 
+import static vn.edu.usth.stockdashboard.R.*;
+
 import android.os.Bundle;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import com.google.android.material.snackbar.Snackbar;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
-import vn.edu.usth.stockdashboard.databinding.ActivityMainBinding;
+import com.google.android.material.bottomappbar.BottomAppBar;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(layout.activity_main);
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
-        // Initialize View Binding
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        HomePagerAdapter homePagerAdapter = new HomePagerAdapter(this);
+        ViewPager2 viewPager2 = findViewById(id.viewpager2);
+        viewPager2.setOffscreenPageLimit(3);
+        viewPager2.setAdapter(homePagerAdapter);
 
-        // Set up toolbar
-        setSupportActionBar(binding.toolbar);
-
-        // Display MyAccountFragment if this is the first creation
         if (savedInstanceState == null) {
+            // Add Home fragment to the fragment container
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_my_account, new MyAccountFragment())
+                    .replace(R.id.fragment_container, new Home())
                     .commit();
         }
-
-        // Set up FloatingActionButton click listener
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AmazonStockDashboardFragment bottomSheetFragment = new AmazonStockDashboardFragment();
-                bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
-            }
-        });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 }
