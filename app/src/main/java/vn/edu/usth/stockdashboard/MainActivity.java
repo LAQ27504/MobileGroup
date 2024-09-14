@@ -2,7 +2,10 @@ package vn.edu.usth.stockdashboard;
 
 import static vn.edu.usth.stockdashboard.R.*;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
@@ -20,6 +23,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +42,31 @@ public class MainActivity extends AppCompatActivity {
         ViewPager2 viewPager2 = findViewById(id.viewpager2);
         viewPager2.setOffscreenPageLimit(3);
         viewPager2.setAdapter(homePagerAdapter);
+
+
+
+        viewPager2.setOnTouchListener(
+                new View.OnTouchListener() {
+                    private boolean moved;
+
+                    @Override
+                    public boolean onTouch(View view, MotionEvent motionEvent) {
+                        if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                            moved = false;
+                        }
+                        if (motionEvent.getAction() == MotionEvent.ACTION_MOVE) {
+                            moved = true;
+                        }
+                        if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                            if (!moved) {
+                                view.performClick();
+                            }
+                        }
+
+                        return false;
+                    }
+                }
+        );
 
         if (savedInstanceState == null) {
             // Add Home fragment to the fragment container
