@@ -9,7 +9,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp">
 
         <ImageView
             android:id="@+id/imgLogin"
@@ -22,20 +23,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textENG"
-            android:layout_width="75dp"
-            android:layout_height="39dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/light_gray_bg"
-            android:drawableStart="@drawable/ic_eng"
-            android:drawablePadding="8dp"
-            android:text="ENG"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/imgLogin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.506" />
 
         <ImageView
             android:id="@+id/imgLogin2"
@@ -46,6 +33,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.536"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="80dp"
+            android:layout_height="51dp"
+            android:src="@drawable/i_eng"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/imgLogin"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
