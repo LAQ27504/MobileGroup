@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -54,13 +53,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        private CardView cardView;
         private ImageView imageView;
         private ImageView imageView2;
         private ImageView imageView3;
         public MyViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
-            cardView = itemView.findViewById(R.id.cardview);
             imageView = itemView.findViewById(R.id.logo_view);
             imageView2 = itemView.findViewById(R.id.item_chart);
             imageView3 = itemView.findViewById(R.id.item_percent);
