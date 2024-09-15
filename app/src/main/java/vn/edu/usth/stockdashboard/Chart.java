@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,13 +23,34 @@ public class Chart extends Fragment {
     private RecyclerView recyclerView;
     private MyAdapter2 myAdapter;
     private List<item> mostViewedItems, topGainersItems, topLosersItems;
-
+    private ImageView icon1, icon2, icon3, icon4;
     private TextView MostViewed, TopGainers, TopLosers;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chart, container, false);
+
+        icon1 = view.findViewById(R.id.homeicon);
+        icon2 = view.findViewById(R.id.chart);
+        icon3 = view.findViewById(R.id.pay);
+        icon4 = view.findViewById(R.id.profile);
+
+//        icon1.setOnClickListener(v -> {
+//            navigateToFragment(new Home());
+//        });
+
+        icon2.setOnClickListener(v -> {
+            navigateToFragment(new Chart());
+        });
+
+        icon3.setOnClickListener(v -> {
+            navigateToFragment(new Wallet());
+        });
+
+//        icon4.setOnClickListener(v -> {
+//            navigateToFragment(new profile());
+//        });
 
         recyclerView = view.findViewById(R.id.recycle_view);
 

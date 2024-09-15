@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (savedInstanceState == null) {
-            // Add Home fragment to the fragment container
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, new Chart())
                     .commit();
