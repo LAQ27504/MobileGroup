@@ -45,7 +45,7 @@
 
 
             <ImageButton
-                android:id="@+id/imageView4"
+                android:id="@+id/noti_icon"
                 android:layout_width="48dp"
                 android:layout_height="55dp"
                 android:layout_marginTop="16dp"

@@ -9,7 +9,7 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     public ViewPagerAdapter(@NonNull Fragment fragment) {
         super(fragment);
     }
-
+    //Viewpager for market layout
     @NonNull
     @Override
     public Fragment createFragment(int position) {
