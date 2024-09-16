@@ -1,5 +1,6 @@
 package vn.edu.usth.stockdashboard;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.activity.EdgeToEdge;
@@ -15,11 +16,15 @@ import androidx.navigation.ui.NavigationUI;
 import vn.edu.usth.stockdashboard.databinding.ActivityMainBinding;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
 
+    @SuppressLint("WrongViewCast")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -35,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.main, new LoginFragment())
                     .commit();
-
         }
+
     }
 }
