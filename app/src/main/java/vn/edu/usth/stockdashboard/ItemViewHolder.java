@@ -7,17 +7,17 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MyViewHolder extends RecyclerView.ViewHolder {
+public class ItemViewHolder extends RecyclerView.ViewHolder {
     private CardView cardView;
 
     public CardView getCardView() {
         return cardView;
     }
 
-    private ImageView imageView;
+    private ImageView companyLogo;
 
-    public ImageView getImageView() {
-        return imageView;
+    public ImageView getCompanyLogo() {
+        return companyLogo;
     }
 
     private ImageView imageView2;
@@ -32,10 +32,10 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         return imageView3;
     }
 
-    public MyViewHolder(@NonNull View itemView) {
+    public ItemViewHolder(@NonNull View itemView) {
         super(itemView);
         cardView = itemView.findViewById(R.id.cardview);
-        imageView = itemView.findViewById(R.id.logo_view);
+        companyLogo = itemView.findViewById(R.id.logo_view);
         imageView2 = itemView.findViewById(R.id.item_chart);
         imageView3 = itemView.findViewById(R.id.item_percent);
     }

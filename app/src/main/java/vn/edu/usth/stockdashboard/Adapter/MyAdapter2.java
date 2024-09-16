@@ -1,4 +1,4 @@
-package vn.edu.usth.stockdashboard;
+package vn.edu.usth.stockdashboard.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,15 +11,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import vn.edu.usth.stockdashboard.CompanyStockItem;
+import vn.edu.usth.stockdashboard.R;
+
 public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
-    private List<item> itemList;
+    private List<CompanyStockItem> itemList;
     private OnItemClickListener listener;
 
     public interface OnItemClickListener {
-        void onItemClick(item clikedItem);
+        void onItemClick(CompanyStockItem clikedItem);
     }
 
-    public MyAdapter2(List<item> itemList, OnItemClickListener listener) {
+    public MyAdapter2(List<CompanyStockItem> itemList, OnItemClickListener listener) {
         this.itemList = itemList;
         this.listener = listener;
     }
@@ -39,7 +42,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        item currentItem = itemList.get(position);
+        CompanyStockItem currentItem = itemList.get(position);
 
         holder.imageView.setImageResource(currentItem.getImageID());
         holder.imageView2.setImageResource(currentItem.getChart());
@@ -53,7 +56,6 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
 
     }
 
-
     class MyViewHolder extends RecyclerView.ViewHolder {
         private CardView cardView;
         private ImageView imageView;
@@ -65,7 +67,6 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
             imageView = itemView.findViewById(R.id.logo_view);
             imageView2 = itemView.findViewById(R.id.item_chart);
             imageView3 = itemView.findViewById(R.id.item_percent);
-
         }
     }
 }

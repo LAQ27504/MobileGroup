@@ -1,13 +1,13 @@
 package vn.edu.usth.stockdashboard;
 
-public class item {
+public class CompanyStockItem {
     private int chart;
     private int imageID;
     private int percent;
     private int fullImage;
     private int graphImage;
 
-    public item(int imageID, int chart, int percent, int fullImage, int graphImage) {
+    public CompanyStockItem(int imageID, int chart, int percent, int fullImage, int graphImage) {
         this.imageID = imageID;
         this.chart = chart;
         this.percent = percent;

@@ -1,9 +1,8 @@
-package vn.edu.usth.stockdashboard;
+package vn.edu.usth.stockdashboard.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,10 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
-    private List<item3> itemList;
+import vn.edu.usth.stockdashboard.R;
+import vn.edu.usth.stockdashboard.PurchaseItem;
 
-    public MyAdapter3(List<item3> itemList) {
+public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
+    private List<PurchaseItem> itemList;
+
+    public MyAdapter3(List<PurchaseItem> itemList) {
         this.itemList = itemList;
     }
 
@@ -23,7 +25,7 @@ public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item3,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.purchase_item,parent,false);
         return new MyViewHolder(view);
     }
 
@@ -34,7 +36,7 @@ public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        item3 item = itemList.get(position);
+        PurchaseItem item = itemList.get(position);
         holder.textView.setText(item.getBuy());
         holder.textView2.setText(item.getDate());
         holder.textView3.setText(item.getAmount());

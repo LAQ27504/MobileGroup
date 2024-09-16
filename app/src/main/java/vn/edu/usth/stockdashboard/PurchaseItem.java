@@ -1,6 +1,6 @@
 package vn.edu.usth.stockdashboard;
 
-public class item3 {
+public class PurchaseItem {
     private String buy;
     private String date;
     private String amount;
@@ -29,7 +29,7 @@ public class item3 {
         this.buy = buy;
     }
 
-    public item3(String buy, String date, String amount) {
+    public PurchaseItem(String buy, String date, String amount) {
         this.date = date;
         this.amount = amount;
         this.buy = buy;

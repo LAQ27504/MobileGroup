@@ -1,4 +1,4 @@
-package vn.edu.usth.stockdashboard;
+package vn.edu.usth.stockdashboard.AppFragment;
 
 import android.os.Bundle;
 
@@ -13,15 +13,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import vn.edu.usth.stockdashboard.R;
 
-public class TermsAndConditionsFragment extends Fragment {
+
+public class HelpAndResourcesFragment extends Fragment {
+
     private ImageView icon1, icon2, icon3, icon4, back_button;
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_terms_and_conditions, container, false);
+        View view = inflater.inflate(R.layout.fragment_help_and_resources, container, false);
 
 
         icon1 = view.findViewById(R.id.homeicon);
@@ -32,23 +35,23 @@ public class TermsAndConditionsFragment extends Fragment {
 
 
         icon1.setOnClickListener(v -> {
-            navigateToFragment(new Home());
+            navigateToFragment(new HomeFragment());
         });
 
         icon2.setOnClickListener(v -> {
-            navigateToFragment(new Chart());
+            navigateToFragment(new ChartFragment());
         });
 
         icon3.setOnClickListener(v -> {
-            navigateToFragment(new Wallet());
+            navigateToFragment(new WalletFragment());
         });
 
         icon4.setOnClickListener(v -> {
-            navigateToFragment(new profile());
+            navigateToFragment(new ProfileFragment());
         });
 
         back_button.setOnClickListener(v -> {
-            navigateToFragment(new profile());
+            navigateToFragment(new ProfileFragment());
         });
 
         return view;

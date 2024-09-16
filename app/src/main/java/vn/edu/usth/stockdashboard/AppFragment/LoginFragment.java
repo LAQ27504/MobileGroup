@@ -1,18 +1,14 @@
-package vn.edu.usth.stockdashboard;
+package vn.edu.usth.stockdashboard.AppFragment;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.NavigationUI;
 
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import vn.edu.usth.stockdashboard.R;
 
 
 /**
