@@ -3,10 +3,15 @@ package vn.edu.usth.stockdashboard;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +19,9 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class TopGainers extends Fragment {
+
+    private RecyclerView recyclerView;
+    private MyAdapter myAdapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,7 +66,19 @@ public class TopGainers extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_top_gainers, container, false);
+        View view = inflater.inflate(R.layout.fragment_top_gainers, container, false);
+
+        recyclerView = view.findViewById(R.id.recycle_view);
+        List<item> itemList = new ArrayList<>();
+        itemList.add(new item(R.drawable.amazon, R.drawable.amazon_chart, R.drawable.amazon_percent, R.drawable.amznfull, R.drawable.amzngraph));
+        itemList.add(new item(R.drawable.tesla, R.drawable.tesla_chart, R.drawable.tesla_percent, R.drawable.teslafull, R.drawable.teslagraph));
+        itemList.add(new item(R.drawable.spot, R.drawable.spotchart, R.drawable.spotpercent, R.drawable.spotfull, R.drawable.spotgraph));
+
+        myAdapter = new MyAdapter(itemList);
+
+        recyclerView.setAdapter(myAdapter);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
+
+        return view;
     }
 }

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fragment_market"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#1E2632"
     tools:context=".Market">
@@ -43,11 +44,12 @@
                 app:layout_constraintVertical_bias="0.0" />
 
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/imageView4"
                 android:layout_width="48dp"
                 android:layout_height="55dp"
                 android:layout_marginTop="16dp"
+                android:backgroundTint="#00FFFFFF"
                 android:src="@drawable/noti"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.951"

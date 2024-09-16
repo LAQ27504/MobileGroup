@@ -3,11 +3,14 @@ package vn.edu.usth.stockdashboard;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
@@ -95,6 +98,17 @@ public class Market extends Fragment {
             tab.setCustomView(customTabView); // Set the custom view for the tab
         }).attach();
 
+        // Find the ImageButton for the notification icon
+        ImageButton notificationButton = view.findViewById(R.id.imageView4);
+
+        // Set onClickListener to navigate to NotificationFragment
+        notificationButton.setOnClickListener(v -> {
+            // Begin fragment transaction
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_market, new NotificationFragment());
+            transaction.addToBackStack(null);
+            transaction.commit();
+        });
         return view;
     }
 }

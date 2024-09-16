@@ -90,7 +90,6 @@ public class LoginFragment extends Fragment {
                 transaction.replace(R.id.main, new Market());
                 transaction.addToBackStack(null);
                 transaction.commit();
-
             }
         });
         return view;
