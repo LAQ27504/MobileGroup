@@ -2,9 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-<<<<<<< HEAD
     <color name="bar">#303847</color>
-    <color name="backgroundcolor">#1e2632</color>
     <color name="white70">#B2FFFFFF</color>
     <color name ="gray">#585F6E</color>
     <color name="purple_200">#FFBB86FC</color>
@@ -15,7 +13,5 @@
     <color name="white_grey_40">#66FFFFFF</color>
     <color name="option_background">#585F6E</color>
     <color name="menu_background">#303847</color>
-=======
     <color name="background">#1E2632</color>
->>>>>>> vhv
 </resources>
