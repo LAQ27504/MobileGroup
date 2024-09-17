@@ -24,6 +24,7 @@ public class Chart extends Fragment {
     private MyAdapter2 myAdapter;
     private List<item> mostViewedItems, topGainersItems, topLosersItems;
     private ImageView icon1, icon2, icon3, icon4;
+
     private TextView MostViewed, TopGainers, TopLosers;
 
     @Nullable
@@ -99,11 +100,11 @@ public class Chart extends Fragment {
         topLosersItems = new ArrayList<>();
 
         // Add items to the lists
-        item amazonItem = new item(R.drawable.amazon, R.drawable.amazon_chart, R.drawable.amazon_percent, R.drawable.amznfull, R.drawable.amzngraph);
-        item msftItem = new item(R.drawable.msft, R.drawable.msft_chart, R.drawable.msft_percent, R.drawable.msftfull, R.drawable.msftgraph);
-        item teslaItem = new item(R.drawable.tesla, R.drawable.tesla_chart, R.drawable.tesla_percent, R.drawable.teslafull, R.drawable.teslagraph);
-        item spotItem = new item(R.drawable.spot, R.drawable.spotchart, R.drawable.spotpercent, R.drawable.spotfull, R.drawable.spotgraph);
-        item nflxItem = new item(R.drawable.nflx, R.drawable.nflxchart, R.drawable.nflxpercent, R.drawable.nflxfull, R.drawable.nflxgraph);
+        item amazonItem = new item(R.drawable.amazon, R.drawable.amazon_chart, R.drawable.amazon_percent, R.drawable.amznfull, R.drawable.amzngraph,R.drawable.spotgraph, R.drawable.teslagraph);
+        item msftItem = new item(R.drawable.msft, R.drawable.msft_chart, R.drawable.msft_percent, R.drawable.msftfull, R.drawable.msftgraph,R.drawable.nflxgraph, R.drawable.msftgraph);
+        item teslaItem = new item(R.drawable.tesla, R.drawable.tesla_chart, R.drawable.tesla_percent, R.drawable.teslafull, R.drawable.teslagraph, R.drawable.amzngraph, R.drawable.spotgraph);
+        item spotItem = new item(R.drawable.spot, R.drawable.spotchart, R.drawable.spotpercent, R.drawable.spotfull, R.drawable.spotgraph,R.drawable.teslagraph,R.drawable.amzngraph );
+        item nflxItem = new item(R.drawable.nflx, R.drawable.nflxchart, R.drawable.nflxpercent, R.drawable.nflxfull, R.drawable.nflxgraph, R.drawable.msftgraph,R.drawable.nflxgraph );
 
         // Add items to mostViewedItems
         mostViewedItems.add(amazonItem);
@@ -127,6 +128,9 @@ public class Chart extends Fragment {
         Intent intent = new Intent(getActivity(),DetailActivity.class);
         intent.putExtra("image1", clickedItem.getFullImage());
         intent.putExtra("image2", clickedItem.getGraphImage());
+        intent.putExtra("hourlygraph", clickedItem.getGraphImage());
+        intent.putExtra("weeklygraph", clickedItem.getWeekly());
+        intent.putExtra("dailygraph", clickedItem.getDaily());
         startActivity(intent);
     }
 
