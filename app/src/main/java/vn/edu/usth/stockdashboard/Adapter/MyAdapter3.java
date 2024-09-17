@@ -16,11 +16,17 @@ import vn.edu.usth.stockdashboard.PurchaseItem;
 
 public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
     private List<PurchaseItem> itemList;
+    private OnItemClickListener listener;
 
-    public MyAdapter3(List<PurchaseItem> itemList) {
-        this.itemList = itemList;
+
+    public interface OnItemClickListener {
+        void onItemClick(PurchaseItem clikedItem);
     }
 
+    public MyAdapter3(List<PurchaseItem> itemList, OnItemClickListener listener) {
+        this.itemList = itemList;
+        this.listener = listener;
+    }
 
     @NonNull
     @Override
@@ -41,6 +47,11 @@ public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
         holder.textView2.setText(item.getDate());
         holder.textView3.setText(item.getAmount());
 
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onItemClick(item); // Passing the entire item object
+            }
+        });
     }
 
 

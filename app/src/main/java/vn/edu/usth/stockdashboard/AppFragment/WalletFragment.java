@@ -1,5 +1,6 @@
 package vn.edu.usth.stockdashboard.AppFragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,13 +16,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.edu.usth.stockdashboard.MainActivity;
 import vn.edu.usth.stockdashboard.Adapter.MyAdapter3;
+import vn.edu.usth.stockdashboard.DetailTransaction;
 import vn.edu.usth.stockdashboard.R;
 import vn.edu.usth.stockdashboard.PurchaseItem;
 
 public class WalletFragment extends Fragment {
     private RecyclerView recyclerView;
+    private MyAdapter3 myAdapter;
     private ImageView icon1, icon2, icon3, icon4;
 
     @Nullable
@@ -67,14 +69,22 @@ public class WalletFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recycle_view);
         List<PurchaseItem> itemList = new ArrayList<>();
 
-        itemList.add(new PurchaseItem("Buy AMZN", "20 November", "$207.00"));
-        itemList.add(new PurchaseItem("Buy TSLA", "07 November", "$534.80"));
-        itemList.add(new PurchaseItem("Buy SPOT", "27 October", "$118.40"));
-        itemList.add(new PurchaseItem("Buy NFLX", "16 October", "$428.40"));
-        itemList.add(new PurchaseItem("Buy MFST", "5 September", "$378.60"));
+        itemList.add(new PurchaseItem("Buy AMZN", "20 November 2024", "$207.00","Amazon.com Inc."));
+        itemList.add(new PurchaseItem("Buy TSLA", "07 November 2024", "$534.80","Tesla. Inc."));
+        itemList.add(new PurchaseItem("Buy SPOT", "27 October 2024", "$118.40","Spotify Inc."));
+        itemList.add(new PurchaseItem("Buy NFLX", "16 October 2024", "$428.40", "Netflix Inc."));
+        itemList.add(new PurchaseItem("Buy MFST", "5 September 2024", "$378.60", "Microsoft Corp"));
 
 
-        MyAdapter3 myAdapter = new MyAdapter3(itemList);
+        myAdapter = new MyAdapter3(itemList, clickedItem -> {
+            Intent intent = new Intent(getActivity(), DetailTransaction.class);
+            intent.putExtra("text1", clickedItem.getAmount());
+            intent.putExtra("text2", clickedItem.getDate());
+            intent.putExtra("text3", clickedItem.getBuy());
+            intent.putExtra("text4", clickedItem.getAmount());
+            intent.putExtra("text5", clickedItem.getFullname());
+            startActivity(intent);
+        });
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
 

@@ -6,13 +6,21 @@ public class CompanyStockItem {
     private int percent;
     private int fullImage;
     private int graphImage;
+    private int daily;
+    private int weekly;
 
-    public CompanyStockItem(int imageID, int chart, int percent, int fullImage, int graphImage) {
-        this.imageID = imageID;
-        this.chart = chart;
-        this.percent = percent;
+    public CompanyStockItem(int imageID, int chart, int percent, int fullImage, int graphImage, int daily, int weekly) {
+        this.weekly = weekly;
+        this.daily = daily;
         this.fullImage = fullImage;
         this.graphImage = graphImage;
+        this.percent = percent;
+        this.imageID = imageID;
+        this.chart = chart;
+    }
+
+    public int getChart() {
+        return chart;
     }
 
     public int getImageID() {
@@ -23,19 +31,19 @@ public class CompanyStockItem {
         return percent;
     }
 
-    public int getChart() {
-        return chart;
-    }
-
-    public void setChart(int chart) {
-        this.chart = chart;
-    }
-
     public int getFullImage() {
         return fullImage;
     }
 
     public int getGraphImage() {
         return graphImage;
+    }
+
+    public int getDaily() {
+        return daily;
+    }
+
+    public int getWeekly() {
+        return weekly;
     }
 }
