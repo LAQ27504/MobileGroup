@@ -16,6 +16,9 @@ import android.widget.TextView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
+import vn.edu.usth.stockdashboard.Adapter.ViewPagerAdapter;
+import vn.edu.usth.stockdashboard.AppFragment.NotificationFragment;
+
 public class Market extends Fragment {
     private ViewPager2 viewPager;
     private TabLayout tabLayout;

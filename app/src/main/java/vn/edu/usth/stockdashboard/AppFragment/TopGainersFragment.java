@@ -1,4 +1,4 @@
-package vn.edu.usth.stockdashboard;
+package vn.edu.usth.stockdashboard.AppFragment;
 
 import android.os.Bundle;
 
@@ -17,19 +17,23 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import vn.edu.usth.stockdashboard.Adapter.MyAdapter;
+import vn.edu.usth.stockdashboard.CompanyStockItem;
+import vn.edu.usth.stockdashboard.R;
 
-public class TopGainers extends Fragment {
+
+public class TopGainersFragment extends Fragment {
 
 
     private RecyclerView recyclerView;
     private MyAdapter myAdapter;
 
-    public TopGainers() {
+    public TopGainersFragment() {
     }
 
     // TODO: Rename and change types and number of parameters
-    public static TopGainers newInstance(String param1, String param2) {
-        TopGainers fragment = new TopGainers();
+    public static TopGainersFragment newInstance(String param1, String param2) {
+        TopGainersFragment fragment = new TopGainersFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -46,10 +50,10 @@ public class TopGainers extends Fragment {
         View view = inflater.inflate(R.layout.fragment_top_gainers, container, false);
 
         recyclerView = view.findViewById(R.id.recycle_view);
-        List<item> itemList = new ArrayList<>();
-        itemList.add(new item(R.drawable.amazon, R.drawable.amazon_chart, R.drawable.amazon_percent, R.drawable.amznfull, R.drawable.amzngraph));
-        itemList.add(new item(R.drawable.tesla, R.drawable.tesla_chart, R.drawable.tesla_percent, R.drawable.teslafull, R.drawable.teslagraph));
-        itemList.add(new item(R.drawable.spot, R.drawable.spotchart, R.drawable.spotpercent, R.drawable.spotfull, R.drawable.spotgraph));
+        List<CompanyStockItem> itemList = new ArrayList<>();
+        itemList.add(new CompanyStockItem(R.drawable.amazon, R.drawable.amazon_chart, R.drawable.amazon_percent, R.drawable.amznfull, R.drawable.amzngraph));
+        itemList.add(new CompanyStockItem(R.drawable.tesla, R.drawable.tesla_chart, R.drawable.tesla_percent, R.drawable.teslafull, R.drawable.teslagraph));
+        itemList.add(new CompanyStockItem(R.drawable.spot, R.drawable.spotchart, R.drawable.spotpercent, R.drawable.spotfull, R.drawable.spotgraph));
 
         myAdapter = new MyAdapter(itemList);
 

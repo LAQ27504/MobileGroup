@@ -96,6 +96,7 @@
         android:layout_marginTop="550dp"
         android:layout_marginStart="25dp"
         android:text="LOGIN TO YOUR ACCOUNT"
+        android:clickable="true"
         app:layout_constraintEnd_toEndOf="@+id/txtPassword"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/txtPassword"

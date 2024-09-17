@@ -6,6 +6,8 @@ import android.os.Bundle;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.View;
 
 import androidx.core.graphics.Insets;
@@ -16,6 +18,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import vn.edu.usth.stockdashboard.Adapter.PageAdapter;
 import vn.edu.usth.stockdashboard.AppFragment.HomeFragment;
+import vn.edu.usth.stockdashboard.AppFragment.LoginFragment;
 import vn.edu.usth.stockdashboard.AppFragment.MainAppFragment;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -54,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 //
 //        getSupportFragmentManager().beginTransaction().add(R.id.main, loginFragment).commit();
 
-
+        Log.i("Test", "Get in");
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -66,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             // Add Home fragment to the fragment container
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new MainAppFragment())
+                    .replace(R.id.fragment_container, new LoginFragment())
                     .commit();
         }
     }

@@ -5,17 +5,25 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import vn.edu.usth.stockdashboard.Adapter.ViewPagerAdapter;
 import vn.edu.usth.stockdashboard.DetailActivity;
 import vn.edu.usth.stockdashboard.MainActivity;
 import vn.edu.usth.stockdashboard.Adapter.MyAdapter2;
@@ -26,6 +34,10 @@ public class ChartFragment extends Fragment {
     private RecyclerView recyclerView;
     private ImageView icon1, icon2, icon3, icon4;
     private MyAdapter2 myAdapter;
+
+    private ViewPager2 viewPager;
+    private TabLayout tabLayout;
+    private ViewPagerAdapter pagerAdapter;
 
     @Nullable
     @Override
@@ -86,6 +98,79 @@ public class ChartFragment extends Fragment {
 
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
+        viewPager = view.findViewById(R.id.view_pager);
+        tabLayout = view.findViewById(R.id.tab_layout);
+
+        // Set up the adapter
+        pagerAdapter = new ViewPagerAdapter(this);
+        viewPager.setAdapter(pagerAdapter);
+
+        // Set up TabLayout with ViewPager2
+        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
+            View customTabView = LayoutInflater.from(getContext()).inflate(R.layout.tab_custom, null);
+            TextView tabText = customTabView.findViewById(R.id.tab_text);
+
+            switch (position) {
+                case 0:
+                    tabText.setText("Most Viewed");
+                    break;
+                case 1:
+                    tabText.setText("Top Gainers");
+                    break;
+                case 2:
+                    tabText.setText("Top Losers");
+                    break;
+            }
+
+            tab.setCustomView(customTabView); // Set the custom view for the tab
+        }).attach();
+
+        ImageButton notiButton = view.findViewById(R.id.notiButton);
+        notiButton.setOnClickListener(v -> {
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_market, new NotificationFragment());
+            transaction.addToBackStack(null);
+            transaction.commit();
+        });
+
+        return view;
+    }
+
+    private View TestFunction(View view){
+        viewPager = view.findViewById(R.id.view_pager);
+        tabLayout = view.findViewById(R.id.tab_layout);
+
+        // Set up the adapter
+        pagerAdapter = new ViewPagerAdapter(this);
+        viewPager.setAdapter(pagerAdapter);
+
+        // Set up TabLayout with ViewPager2
+        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {
+            View customTabView = LayoutInflater.from(getContext()).inflate(R.layout.tab_custom, null);
+            TextView tabText = customTabView.findViewById(R.id.tab_text);
+
+            switch (position) {
+                case 0:
+                    tabText.setText("Most Viewed");
+                    break;
+                case 1:
+                    tabText.setText("Top Gainers");
+                    break;
+                case 2:
+                    tabText.setText("Top Losers");
+                    break;
+            }
+
+            tab.setCustomView(customTabView); // Set the custom view for the tab
+        }).attach();
+
+        ImageButton notiButton = view.findViewById(R.id.notiButton);
+        notiButton.setOnClickListener(v -> {
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_market, new NotificationFragment());
+            transaction.addToBackStack(null);
+            transaction.commit();
+        });
 
         return view;
     }

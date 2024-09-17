@@ -1,4 +1,4 @@
-package vn.edu.usth.stockdashboard;
+package vn.edu.usth.stockdashboard.AppFragment;
 
 import android.os.Bundle;
 
@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+
+import vn.edu.usth.stockdashboard.Market;
+import vn.edu.usth.stockdashboard.R;
 
 /**
  * A simple {@link Fragment} subclass.

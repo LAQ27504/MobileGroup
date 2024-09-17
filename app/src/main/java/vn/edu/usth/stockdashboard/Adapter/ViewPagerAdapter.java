@@ -1,14 +1,12 @@
-package vn.edu.usth.stockdashboard;
+package vn.edu.usth.stockdashboard.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import android.view.View;
-import android.widget.ImageView;
-
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.RecyclerView;
+import vn.edu.usth.stockdashboard.AppFragment.MostViewedFragment;
+import vn.edu.usth.stockdashboard.AppFragment.TopGainersFragment;
+import vn.edu.usth.stockdashboard.AppFragment.TopLosersFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
 
@@ -21,13 +19,13 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position) {
             case 0:
-                return new MostViewed();
+                return new MostViewedFragment();
             case 1:
-                return new TopGainers();
+                return new TopGainersFragment();
             case 2:
-                return new TopLosers();
+                return new TopLosersFragment();
             default:
-                return new MostViewed();
+                return new MostViewedFragment();
         }
     }
 

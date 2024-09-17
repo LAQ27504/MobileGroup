@@ -45,16 +45,18 @@
                 app:layout_constraintVertical_bias="0.0" />
 
 
-            <ImageView
-                android:id="@+id/imageView4"
+            <ImageButton
+                android:id="@+id/notiButton"
                 android:layout_width="48dp"
                 android:layout_height="55dp"
-                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/background"
                 android:src="@drawable/noti"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.951"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.52" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -63,59 +65,17 @@
             android:layout_height="70dp"
             android:background="@drawable/textbar"
             android:layout_margin="16dp">
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <TextView
-                    android:layout_width="128dp"
-                    android:layout_height="43dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/textbar1"
-                    android:fontFamily="sans-serif"
-                    android:gravity="center"
-                    android:text="Most Viewed"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.063"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:fontFamily="sans-serif"
-                    android:gravity="center"
-                    android:text="Top Losers"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.875"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:fontFamily="sans-serif"
-                    android:gravity="center"
-                    android:text="Top Gainers"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.538"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="370dp"
+                android:layout_height="65dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/tab_bg"
+                android:contentDescription="Tabs for market screen"
+                app:tabBackground="@drawable/tab_bg"
+                app:tabIndicatorFullWidth="false"
+                app:tabIndicatorHeight="0dp"/>
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -126,6 +86,12 @@
             android:layout_marginStart="16dp"
             android:background="@drawable/iconbar"
             android:scrollbars="vertical" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"/>
 
     </LinearLayout>
 

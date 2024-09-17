@@ -1,4 +1,4 @@
-package vn.edu.usth.stockdashboard;
+package vn.edu.usth.stockdashboard.AppFragment;
 
 import android.os.Bundle;
 
@@ -17,19 +17,23 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import vn.edu.usth.stockdashboard.Adapter.MyAdapter;
+import vn.edu.usth.stockdashboard.CompanyStockItem;
+import vn.edu.usth.stockdashboard.R;
 
-public class MostViewed extends Fragment {
+
+public class TopLosersFragment extends Fragment {
 
 
     private RecyclerView recyclerView;
     private MyAdapter myAdapter;
 
-    public MostViewed() {
+    public TopLosersFragment() {
     }
 
     // TODO: Rename and change types and number of parameters
-    public static MostViewed newInstance(String param1, String param2) {
-        MostViewed fragment = new MostViewed();
+    public static TopLosersFragment newInstance(String param1, String param2) {
+        TopLosersFragment fragment = new TopLosersFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -43,19 +47,14 @@ public class MostViewed extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_most_viewed, container, false);
+        View view = inflater.inflate(R.layout.fragment_top_losers, container, false);
 
         recyclerView = view.findViewById(R.id.recycle_view);
-        List<item> itemList = new ArrayList<>();
-        itemList.add(new item(R.drawable.amazon, R.drawable.amazon_chart, R.drawable.amazon_percent, R.drawable.amznfull, R.drawable.amzngraph));
-        itemList.add(new item(R.drawable.msft, R.drawable.msft_chart, R.drawable.msft_percent, R.drawable.msftfull, R.drawable.msftgraph));
-        itemList.add(new item(R.drawable.tesla, R.drawable.tesla_chart, R.drawable.tesla_percent, R.drawable.teslafull, R.drawable.teslagraph));
-        itemList.add(new item(R.drawable.spot, R.drawable.spotchart, R.drawable.spotpercent, R.drawable.spotfull, R.drawable.spotgraph));
-        itemList.add(new item(R.drawable.nflx, R.drawable.nflxchart, R.drawable.nflxpercent, R.drawable.nflxfull, R.drawable.nflxgraph));
+        List<CompanyStockItem> itemList = new ArrayList<>();
+        itemList.add(new CompanyStockItem(R.drawable.msft, R.drawable.msft_chart, R.drawable.msft_percent, R.drawable.msftfull, R.drawable.msftgraph));
+        itemList.add(new CompanyStockItem(R.drawable.nflx, R.drawable.nflxchart, R.drawable.nflxpercent, R.drawable.nflxfull, R.drawable.nflxgraph));
 
         myAdapter = new MyAdapter(itemList);
-
-
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
 
