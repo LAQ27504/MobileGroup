@@ -50,7 +50,7 @@ public class Market extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_market, container, false);
+        View view = inflater.inflate(R.layout.fragment_chart, container, false);
 
         viewPager = view.findViewById(R.id.view_pager);
         tabLayout = view.findViewById(R.id.tab_layout);
@@ -82,7 +82,7 @@ public class Market extends Fragment {
         ImageButton notiButton = view.findViewById(R.id.notiButton);
         notiButton.setOnClickListener(v -> {
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_market, new NotificationFragment());
+            transaction.replace(R.id.home, new NotificationFragment());
             transaction.addToBackStack(null);
             transaction.commit();
         });

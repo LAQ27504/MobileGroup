@@ -83,12 +83,13 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.984" />
 
-            <ImageView
-                android:id="@+id/imageView4"
+            <ImageButton
+                android:id="@+id/notiButton"
                 android:layout_width="48dp"
-                android:layout_height="55dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="16dp"
                 android:src="@drawable/noti"
+                android:backgroundTint="@color/transparent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.951"
                 app:layout_constraintStart_toStartOf="parent"

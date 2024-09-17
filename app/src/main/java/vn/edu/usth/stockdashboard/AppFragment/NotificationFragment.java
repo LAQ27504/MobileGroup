@@ -3,6 +3,7 @@ package vn.edu.usth.stockdashboard.AppFragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import vn.edu.usth.stockdashboard.R;
  * create an instance of this fragment.
  */
 public class NotificationFragment extends Fragment {
+    private ImageButton backButton;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -66,13 +68,14 @@ public class NotificationFragment extends Fragment {
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_notification, container, false);
 
-        View view = inflater.inflate(R.layout.fragment_notification, container, false);
-        ImageButton backButton = view.findViewById(R.id.backButton);
-        backButton.setOnClickListener(v -> {
-            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_noti, new Market());
-            transaction.commit();
-        });
-        return view;
+            View view = inflater.inflate(R.layout.fragment_notification, container, false);
+            ImageButton backButton = view.findViewById(R.id.backButton);
+            backButton.setOnClickListener(v -> {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_noti, new HomeFragment());
+                transaction.commit();
+            });
+            return view;
+        }
     }
-}
+

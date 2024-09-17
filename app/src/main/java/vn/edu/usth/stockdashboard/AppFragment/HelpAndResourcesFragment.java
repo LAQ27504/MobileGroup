@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import vn.edu.usth.stockdashboard.R;
@@ -54,6 +55,15 @@ public class HelpAndResourcesFragment extends Fragment {
             navigateToFragment(new ProfileFragment());
         });
 
+
+        ImageButton notiButton = view.findViewById(R.id.notiButton);
+        notiButton.setOnClickListener(v -> {
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.replace(R.id.help_and_resources, new NotificationFragment());
+            transaction.addToBackStack(null);
+            transaction.commit();
+        });
+
         return view;
     }
 
@@ -64,4 +74,6 @@ public class HelpAndResourcesFragment extends Fragment {
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
+
+
 }

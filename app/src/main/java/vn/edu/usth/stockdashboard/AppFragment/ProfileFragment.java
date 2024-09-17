@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -72,6 +73,8 @@ public class ProfileFragment extends Fragment {
             Log.i("Test", "Get condition Button");
             switchFragment(new TermsAndConditionsFragment());
         });
+
+
         return view;
     }
 

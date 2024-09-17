@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
+    android:id="@+id/most_viewed"
     tools:context=".AppFragment.MostViewedFragment">
 
     <LinearLayout

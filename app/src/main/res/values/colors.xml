@@ -14,4 +14,6 @@
     <color name="option_background">#585F6E</color>
     <color name="menu_background">#303847</color>
     <color name="background">#1E2632</color>
+    <color name="transparent">#00FFFFFF</color>
+
 </resources>
