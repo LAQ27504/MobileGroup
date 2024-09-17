@@ -12,7 +12,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="800dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -61,17 +64,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:background="@drawable/textbar"
-            android:layout_margin="16dp">
+            android:layout_margin="16dp"
+            android:background="@drawable/textbar">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <TextView
-<<<<<<< HEAD
-=======
                     android:id="@+id/most_viewed"
->>>>>>> origin/ntt
                     android:layout_width="128dp"
                     android:layout_height="43dp"
                     android:layout_marginTop="12dp"
@@ -87,69 +88,46 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-<<<<<<< HEAD
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-=======
                     android:id="@+id/top_losers"
                     android:layout_width="128dp"
                     android:layout_height="43dp"
                     android:layout_marginTop="12dp"
->>>>>>> origin/ntt
                     android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:text="Top Losers"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
-<<<<<<< HEAD
-                    app:layout_constraintHorizontal_bias="0.875"
-=======
                     app:layout_constraintHorizontal_bias="0.96"
->>>>>>> origin/ntt
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-<<<<<<< HEAD
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-=======
                     android:id="@+id/top_gainers"
                     android:layout_width="128dp"
                     android:layout_height="43dp"
                     android:layout_marginTop="12dp"
->>>>>>> origin/ntt
                     android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:text="Top Gainers"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
-<<<<<<< HEAD
                     app:layout_constraintHorizontal_bias="0.538"
-=======
-                    app:layout_constraintHorizontal_bias="0.537"
->>>>>>> origin/ntt
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycle_view"
-            android:layout_marginTop="28dp"
             android:layout_width="377dp"
             android:layout_height="550dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="28dp"
             android:background="@drawable/iconbar"
             android:scrollbars="vertical" />
 
@@ -228,11 +206,7 @@
                         android:layout_height="40dp"
                         android:layout_margin="4dp"
                         android:layout_weight="15"
-<<<<<<< HEAD
                         android:src="@drawable/profile"
-=======
-                        android:src="@drawable/user"
->>>>>>> origin/ntt
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.951"

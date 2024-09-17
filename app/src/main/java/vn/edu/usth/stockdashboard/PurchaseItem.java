@@ -29,7 +29,7 @@ public class PurchaseItem {
         this.buy = buy;
     }
 
-    public PurchaseItem(String buy, String date, String amount) {
+    public PurchaseItem(String buy, String date, String amount, String s) {
         this.date = date;
         this.amount = amount;
         this.buy = buy;

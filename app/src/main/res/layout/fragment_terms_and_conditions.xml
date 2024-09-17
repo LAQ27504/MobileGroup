@@ -7,9 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/backgroundcolor"
     android:orientation="vertical"
-    tools:context=".AppFragment.HelpAndResourcesFragment"
-    >
-
+    tools:context=".AppFragment.HelpAndResourcesFragment">
 
     <LinearLayout
         android:layout_width="0dp"

@@ -13,12 +13,9 @@
         android:theme="@style/Theme.StockDashBoard"
         tools:targetApi="31">
         <activity
-<<<<<<< HEAD
-=======
             android:name=".DetailTransaction"
             android:exported="false" />
         <activity
->>>>>>> origin/ntt
             android:name=".DetailActivity"
             android:exported="false" />
         <activity

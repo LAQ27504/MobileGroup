@@ -1,5 +1,6 @@
 package vn.edu.usth.stockdashboard.Adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +12,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import vn.edu.usth.stockdashboard.DetailTransaction;
 import vn.edu.usth.stockdashboard.R;
 import vn.edu.usth.stockdashboard.PurchaseItem;
+import vn.edu.usth.stockdashboard.item3;
 
 public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
     private List<PurchaseItem> itemList;
+    private OnItemClickListener listener;
+
+    public interface OnItemClickListener {
+        void onItemClick(PurchaseItem clickedItem);
+    }
 
     public MyAdapter3(List<PurchaseItem> itemList) {
         this.itemList = itemList;
@@ -40,6 +48,15 @@ public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
         holder.textView.setText(item.getBuy());
         holder.textView2.setText(item.getDate());
         holder.textView3.setText(item.getAmount());
+
+        //Directly set onclicklistener -> frag detailtransaction
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(holder.itemView.getContext(), DetailTransaction.class);
+            intent.putExtra("text1", item.getBuy());
+            intent.putExtra("text2", item.getDate());
+            intent.putExtra("text3", item.getAmount());
+            holder.itemView.getContext().startActivity(intent);
+        });
 
     }
 

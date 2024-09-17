@@ -7,8 +7,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     app:cardElevation="0dp"
-    app:cardBackgroundColor="@android:color/transparent"
-    >
+    app:cardBackgroundColor="@android:color/transparent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

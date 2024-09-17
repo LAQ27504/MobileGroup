@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.edu.usth.stockdashboard.MainActivity;
 import vn.edu.usth.stockdashboard.Adapter.MyAdapter3;
 import vn.edu.usth.stockdashboard.R;
 import vn.edu.usth.stockdashboard.PurchaseItem;
@@ -67,11 +66,11 @@ public class WalletFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recycle_view);
         List<PurchaseItem> itemList = new ArrayList<>();
 
-        itemList.add(new PurchaseItem("Buy AMZN", "20 November", "$207.00"));
-        itemList.add(new PurchaseItem("Buy TSLA", "07 November", "$534.80"));
-        itemList.add(new PurchaseItem("Buy SPOT", "27 October", "$118.40"));
-        itemList.add(new PurchaseItem("Buy NFLX", "16 October", "$428.40"));
-        itemList.add(new PurchaseItem("Buy MFST", "5 September", "$378.60"));
+        itemList.add(new PurchaseItem("Buy AMZN", "20 November", "$207.00", "Amazon.com Inc."));
+        itemList.add(new PurchaseItem("Buy TSLA", "07 November", "$534.80", "Amazon.com Inc."));
+        itemList.add(new PurchaseItem("Buy SPOT", "27 October", "$118.40", "Amazon.com Inc."));
+        itemList.add(new PurchaseItem("Buy NFLX", "16 October", "$428.40", "Amazon.com Inc."));
+        itemList.add(new PurchaseItem("Buy MFST", "5 September", "$378.60", "Amazon.com Inc."));
 
 
         MyAdapter3 myAdapter = new MyAdapter3(itemList);

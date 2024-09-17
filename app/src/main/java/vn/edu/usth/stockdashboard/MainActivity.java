@@ -3,7 +3,6 @@ package vn.edu.usth.stockdashboard;
 import static vn.edu.usth.stockdashboard.R.*;
 
 import android.os.Bundle;
-<<<<<<< HEAD
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +18,6 @@ import androidx.viewpager.widget.ViewPager;
 import vn.edu.usth.stockdashboard.Adapter.PageAdapter;
 import vn.edu.usth.stockdashboard.AppFragment.HomeFragment;
 import vn.edu.usth.stockdashboard.AppFragment.MainAppFragment;
-=======
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
@@ -30,23 +28,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
->>>>>>> origin/ntt
 
 public class MainActivity extends AppCompatActivity {
     private static MainActivity Instance;
 
-<<<<<<< HEAD
 
     public static MainActivity getInstance() {
         return Instance;
     }
-=======
->>>>>>> origin/ntt
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-<<<<<<< HEAD
         MainActivity.Instance = this;
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
@@ -76,31 +69,4 @@ public class MainActivity extends AppCompatActivity {
                     .commit();
         }
     }
-
-
-=======
-        EdgeToEdge.enable(this);
-        setContentView(layout.activity_main);
-
-        View decorView = getWindow().getDecorView();
-        decorView.setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-
-
-
-
-
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new Chart())
-                    .commit();
-
-        }
-    }
->>>>>>> origin/ntt
 }

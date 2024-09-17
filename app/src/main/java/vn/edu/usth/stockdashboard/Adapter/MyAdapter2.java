@@ -19,7 +19,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
     private OnItemClickListener listener;
 
     public interface OnItemClickListener {
-        void onItemClick(CompanyStockItem clikedItem);
+        void onItemClick(CompanyStockItem clickedItem);
     }
 
     public MyAdapter2(List<CompanyStockItem> itemList, OnItemClickListener listener) {
@@ -43,7 +43,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         CompanyStockItem currentItem = itemList.get(position);
-
+        //CompanyStockItem currentItem = itemList.get(position);
         holder.imageView.setImageResource(currentItem.getImageID());
         holder.imageView2.setImageResource(currentItem.getChart());
         holder.imageView3.setImageResource(currentItem.getPercent());
@@ -54,6 +54,11 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
             }
         });
 
+    }
+
+    public void updateList(List<CompanyStockItem> newList) {
+        this.itemList = newList;
+        notifyDataSetChanged();  // Refresh RecyclerView
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {

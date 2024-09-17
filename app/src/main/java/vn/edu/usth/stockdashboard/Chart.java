@@ -19,10 +19,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import vn.edu.usth.stockdashboard.Adapter.MyAdapter2;
+
 public class Chart extends Fragment {
     private RecyclerView recyclerView;
     private MyAdapter2 myAdapter;
-    private List<item> mostViewedItems, topGainersItems, topLosersItems;
+    private List<CompanyStockItem> mostViewedItems, topGainersItems, topLosersItems;
     private ImageView icon1, icon2, icon3, icon4;
     private TextView MostViewed, TopGainers, TopLosers;
 
@@ -99,11 +101,11 @@ public class Chart extends Fragment {
         topLosersItems = new ArrayList<>();
 
         // Add items to the lists
-        item amazonItem = new item(R.drawable.amazon, R.drawable.amazon_chart, R.drawable.amazon_percent, R.drawable.amznfull, R.drawable.amzngraph);
-        item msftItem = new item(R.drawable.msft, R.drawable.msft_chart, R.drawable.msft_percent, R.drawable.msftfull, R.drawable.msftgraph);
-        item teslaItem = new item(R.drawable.tesla, R.drawable.tesla_chart, R.drawable.tesla_percent, R.drawable.teslafull, R.drawable.teslagraph);
-        item spotItem = new item(R.drawable.spot, R.drawable.spotchart, R.drawable.spotpercent, R.drawable.spotfull, R.drawable.spotgraph);
-        item nflxItem = new item(R.drawable.nflx, R.drawable.nflxchart, R.drawable.nflxpercent, R.drawable.nflxfull, R.drawable.nflxgraph);
+        CompanyStockItem amazonItem = new CompanyStockItem(R.drawable.amazon, R.drawable.amazon_chart, R.drawable.amazon_percent, R.drawable.amznfull, R.drawable.amzngraph);
+        CompanyStockItem msftItem = new CompanyStockItem(R.drawable.msft, R.drawable.msft_chart, R.drawable.msft_percent, R.drawable.msftfull, R.drawable.msftgraph);
+        CompanyStockItem teslaItem = new CompanyStockItem(R.drawable.tesla, R.drawable.tesla_chart, R.drawable.tesla_percent, R.drawable.teslafull, R.drawable.teslagraph);
+        CompanyStockItem spotItem = new CompanyStockItem(R.drawable.spot, R.drawable.spotchart, R.drawable.spotpercent, R.drawable.spotfull, R.drawable.spotgraph);
+        CompanyStockItem nflxItem = new CompanyStockItem(R.drawable.nflx, R.drawable.nflxchart, R.drawable.nflxpercent, R.drawable.nflxfull, R.drawable.nflxgraph);
 
         // Add items to mostViewedItems
         mostViewedItems.add(amazonItem);
@@ -123,7 +125,7 @@ public class Chart extends Fragment {
     }
 
 
-    private void moveToDetailActivity(item clickedItem) {
+    private void moveToDetailActivity(CompanyStockItem clickedItem) {
         Intent intent = new Intent(getActivity(),DetailActivity.class);
         intent.putExtra("image1", clickedItem.getFullImage());
         intent.putExtra("image2", clickedItem.getGraphImage());
