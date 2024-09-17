@@ -43,31 +43,6 @@ public class MainActivity extends AppCompatActivity {
         viewPager2.setOffscreenPageLimit(3);
         viewPager2.setAdapter(homePagerAdapter);
 
-
-
-        viewPager2.setOnTouchListener(
-                new View.OnTouchListener() {
-                    private boolean moved;
-
-                    @Override
-                    public boolean onTouch(View view, MotionEvent motionEvent) {
-                        if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                            moved = false;
-                        }
-                        if (motionEvent.getAction() == MotionEvent.ACTION_MOVE) {
-                            moved = true;
-                        }
-                        if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                            if (!moved) {
-                                view.performClick();
-                            }
-                        }
-
-                        return false;
-                    }
-                }
-        );
-
         if (savedInstanceState == null) {
             // Add Home fragment to the fragment container
             getSupportFragmentManager().beginTransaction()

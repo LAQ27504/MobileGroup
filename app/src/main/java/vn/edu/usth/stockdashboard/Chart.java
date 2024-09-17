@@ -33,7 +33,6 @@ public class Chart extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chart, container, false);
 
-
         icon1 = view.findViewById(R.id.homeicon);
         icon2 = view.findViewById(R.id.chart);
         icon3 = view.findViewById(R.id.pay);

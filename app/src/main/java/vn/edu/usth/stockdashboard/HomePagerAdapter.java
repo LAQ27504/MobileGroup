@@ -1,15 +1,13 @@
 package vn.edu.usth.stockdashboard;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class HomePagerAdapter extends FragmentStateAdapter {
     private final int PAGE_COUNT = 4;
     private String titles[] = new String[] { "Home", "Bar_Chart", "Credit_Card", "Profile" };
-    public HomePagerAdapter(AppCompatActivity activity) {
+    public HomePagerAdapter(FragmentManager activity) {
 
         super(activity);
     }

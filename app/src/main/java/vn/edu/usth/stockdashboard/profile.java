@@ -63,6 +63,7 @@ public class profile extends Fragment {
             navigateToFragment(new profile());
         });
 
+
         help_button.setOnClickListener(v -> {
             navigateToFragment(new HelpAndResourcesFragment());
         });
@@ -77,6 +78,7 @@ public class profile extends Fragment {
 //        });
         return view;
     }
+
 
     private void navigateToFragment (Fragment fragment){
         FragmentManager fragmentManager = getParentFragmentManager();
