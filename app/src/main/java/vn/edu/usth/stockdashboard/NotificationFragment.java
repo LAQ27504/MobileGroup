@@ -66,7 +66,9 @@ public class NotificationFragment extends Fragment {
         ImageButton backBtn = view.findViewById(R.id.backbtn);
 
         backBtn.setOnClickListener(v -> {
-            getParentFragmentManager().popBackStack();
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_noti, new Market());
+            transaction.commit();
         });
         return view;
 
