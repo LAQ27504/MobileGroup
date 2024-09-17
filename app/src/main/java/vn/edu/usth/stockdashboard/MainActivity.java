@@ -17,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import vn.edu.usth.stockdashboard.Adapter.PageAdapter;
 import vn.edu.usth.stockdashboard.AppFragment.HomeFragment;
+import vn.edu.usth.stockdashboard.AppFragment.LoginFragment;
 import vn.edu.usth.stockdashboard.AppFragment.MainAppFragment;
 import android.view.View;
 
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             // Add Home fragment to the fragment container
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new MainAppFragment())
+                    .replace(R.id.fragment_container, new LoginFragment())
                     .commit();
         }
     }

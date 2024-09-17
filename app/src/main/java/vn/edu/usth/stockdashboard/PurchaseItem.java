@@ -4,6 +4,7 @@ public class PurchaseItem {
     private String buy;
     private String date;
     private String amount;
+    private String fullname;
 
     public String getDate() {
         return date;
@@ -29,9 +30,14 @@ public class PurchaseItem {
         this.buy = buy;
     }
 
-    public PurchaseItem(String buy, String date, String amount, String s) {
+    public PurchaseItem(String buy, String date, String amount, String fullname) {
         this.date = date;
         this.amount = amount;
         this.buy = buy;
+        this.fullname = fullname;
+    }
+
+    public String getFullname() {
+        return fullname;
     }
 }

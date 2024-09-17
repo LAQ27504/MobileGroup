@@ -1,5 +1,6 @@
 package vn.edu.usth.stockdashboard.AppFragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vn.edu.usth.stockdashboard.Adapter.MyAdapter3;
+import vn.edu.usth.stockdashboard.DetailTransaction;
 import vn.edu.usth.stockdashboard.R;
 import vn.edu.usth.stockdashboard.PurchaseItem;
 
@@ -73,7 +75,15 @@ public class WalletFragment extends Fragment {
         itemList.add(new PurchaseItem("Buy MFST", "5 September", "$378.60", "Amazon.com Inc."));
 
 
-        MyAdapter3 myAdapter = new MyAdapter3(itemList);
+        MyAdapter3 myAdapter = new MyAdapter3(itemList, clickedItem -> {
+            Intent intent = new Intent(getActivity(), DetailTransaction.class);
+            intent.putExtra("text1", clickedItem.getAmount());
+            intent.putExtra("text2", clickedItem.getDate());
+            intent.putExtra("text3", clickedItem.getBuy());
+            intent.putExtra("text4", clickedItem.getAmount());
+            intent.putExtra("text5", clickedItem.getFullname());
+            startActivity(intent);
+        });
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
 

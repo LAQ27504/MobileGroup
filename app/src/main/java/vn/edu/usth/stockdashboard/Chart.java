@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vn.edu.usth.stockdashboard.Adapter.MyAdapter2;
+import vn.edu.usth.stockdashboard.AppFragment.WalletFragment;
 
 public class Chart extends Fragment {
     private RecyclerView recyclerView;
@@ -47,7 +48,7 @@ public class Chart extends Fragment {
         });
 
         icon3.setOnClickListener(v -> {
-            navigateToFragment(new Wallet());
+            navigateToFragment(new WalletFragment());
         });
 
 //        icon4.setOnClickListener(v -> {
