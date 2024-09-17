@@ -60,6 +60,7 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+<<<<<<< HEAD
     <string name="AMZN">AMZN</string>
     <string name="Amazon_com_inc">Amazon.com inc.</string>
     <string name="amazon_stock">2.45%</string>
@@ -84,4 +85,8 @@
     <string name="logout_icon">logout icon</string>
     <string name="user_profile">User profile</string>
     >>>>>>> tbn:app/src/main/res/values/string.xml
+=======
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+>>>>>>> origin/ntt
 </resources>

@@ -8,7 +8,11 @@ material = "1.12.0"
 constraintlayout = "2.1.4"
 navigationFragment = "2.8.0"
 navigationUi = "2.8.0"
+<<<<<<< HEAD
 activity = "1.9.2"
+=======
+activity = "1.9.1"
+>>>>>>> origin/ntt
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
