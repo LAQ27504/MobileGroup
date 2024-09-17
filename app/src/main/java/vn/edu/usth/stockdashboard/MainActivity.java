@@ -5,11 +5,15 @@ import android.os.Bundle;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -19,10 +23,13 @@ import vn.edu.usth.stockdashboard.AppFragment.MainAppFragment;
 
 public class MainActivity extends AppCompatActivity {
     private static MainActivity Instance;
-
-
     public static MainActivity getInstance() {
         return Instance;
+    }
+
+    private MainAppFragment mainAppFragment = new MainAppFragment();
+    public MainAppFragment getMainAppFragment() {
+        return mainAppFragment;
     }
 
     @Override
@@ -36,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-//
+
 //        LoginFragment loginFragment = new LoginFragment();
 //
 //        getSupportFragmentManager().beginTransaction().add(R.id.main, loginFragment).commit();
@@ -53,10 +60,11 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             // Add Home fragment to the fragment container
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new MainAppFragment())
+                    .replace(R.id.fragment_container, mainAppFragment)
                     .commit();
         }
     }
+
 
 
 }

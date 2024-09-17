@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,7 @@ public class MainAppFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private ViewPager pager;
+    public ViewPager pager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,8 +50,8 @@ public class MainAppFragment extends Fragment {
 
         PagerAdapter adapter = new PageAdapter(getActivity().getSupportFragmentManager());
         this.pager = (ViewPager) view.findViewById(R.id.pager);
-        pager.setOffscreenPageLimit(3);
-        pager.setAdapter(adapter);
+        this.pager.setOffscreenPageLimit(4);
+        this.pager.setAdapter(adapter);
 
         return view;
     }
@@ -58,4 +59,6 @@ public class MainAppFragment extends Fragment {
     public void setFragment(int page){
         this.pager.setCurrentItem(page);
     }
+
+
 }

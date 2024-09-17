@@ -80,9 +80,11 @@ public class ProfileFragment extends Fragment {
     }
 
     private void switchFragment(Fragment fragment){
-        FragmentManager fragmentManager = getParentFragmentManager();
+        Log.i("test", String.valueOf(R.id.fragment_container));
+
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.add(R.id.fragment_container, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
