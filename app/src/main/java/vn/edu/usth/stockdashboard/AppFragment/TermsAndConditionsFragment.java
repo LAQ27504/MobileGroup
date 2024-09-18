@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ImageButton;
 
 import vn.edu.usth.stockdashboard.MainActivity;
 import vn.edu.usth.stockdashboard.R;
@@ -54,6 +55,16 @@ public class TermsAndConditionsFragment extends Fragment {
         back_button.setOnClickListener(v -> {
             switchFragment(3);
         });
+
+        ImageButton notiButton = view.findViewById(R.id.notiButton);
+        notiButton.setOnClickListener(v -> {
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.replace(R.id.terms_and_conditions, new NotificationFragment());
+            transaction.addToBackStack(null);
+            transaction.commit();
+        });
+
+
         return view;
     }
 

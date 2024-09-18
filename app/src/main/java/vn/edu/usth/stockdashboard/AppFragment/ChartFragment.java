@@ -7,10 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -104,6 +106,15 @@ public class ChartFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recycle_view);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
+
+
+        ImageButton notiButton = view.findViewById(R.id.notiButton);
+        notiButton.setOnClickListener(v -> {
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container, new NotificationFragment());
+            transaction.addToBackStack(null);
+            transaction.commit();
+        });
 
         return view;
     }
