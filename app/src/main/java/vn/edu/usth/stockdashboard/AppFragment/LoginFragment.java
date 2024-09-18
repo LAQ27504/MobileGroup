@@ -3,11 +3,16 @@ package vn.edu.usth.stockdashboard.AppFragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import vn.edu.usth.stockdashboard.MainActivity;
 import vn.edu.usth.stockdashboard.R;
 
 
@@ -17,6 +22,9 @@ import vn.edu.usth.stockdashboard.R;
  * create an instance of this fragment.
  */
 public class LoginFragment extends Fragment {
+    private EditText txtUsername;
+    private EditText txtPassword;
+    private Button btnLogin;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,7 +69,26 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false);
+        View view = inflater.inflate(R.layout.fragment_login, container, false);
+
+        // Map properties in fragment_login.xml
+        txtUsername = view.findViewById(R.id.txtUsername);
+        txtPassword = view.findViewById(R.id.txtPassword);
+        btnLogin = view.findViewById(R.id.btnLogin);
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Show small "alert"
+                String username = txtUsername.getText().toString().trim();
+                Toast.makeText(getActivity(), "Hello " + username, Toast.LENGTH_LONG).show();
+
+                // Login sucessfully -> replace w mainapp
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, MainActivity.getInstance().getMainAppFragment())
+                        .commit();
+            }
+        });
+        return view;
     }
 }

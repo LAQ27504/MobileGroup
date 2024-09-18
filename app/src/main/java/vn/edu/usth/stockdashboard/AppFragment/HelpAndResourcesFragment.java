@@ -65,5 +65,6 @@ public class HelpAndResourcesFragment extends Fragment {
         fragmentTransaction.detach(this);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+
     }
 }

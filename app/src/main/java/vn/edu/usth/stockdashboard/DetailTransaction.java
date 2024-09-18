@@ -31,8 +31,6 @@ public class DetailTransaction extends AppCompatActivity {
         String text4value = getIntent().getStringExtra("text4");
         String text5value = getIntent().getStringExtra("text5");
 
-
-
         // Set text to TextViews
         text1.setText(text1value);
         text2.setText(text2value);

@@ -83,5 +83,6 @@
     <string name="term_icon">term icon</string>
     <string name="logout_icon">logout icon</string>
     <string name="user_profile">User profile</string>
-    >>>>>>> tbn:app/src/main/res/values/string.xml
+
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>

@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp" >
+        android:layout_margin="10dp">
 
 
         <TextView
@@ -37,7 +37,7 @@
             android:layout_marginTop="24dp"
             android:fontFamily="sans-serif"
             android:gravity="center"
-            android:text="20 November"
+            android:text="20 November 2024"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"

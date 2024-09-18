@@ -23,8 +23,6 @@ public class PurchaseItem {
     public String getFullname() {
         return fullname;
     }
-
-
     public PurchaseItem(String buy, String date, String amount, String fullname) {
         this.date = date;
         this.amount = amount;
