@@ -18,7 +18,7 @@ import vn.edu.usth.stockdashboard.MainActivity;
 import vn.edu.usth.stockdashboard.R;
 
 public class ProfileFragment extends Fragment {
-    private ImageView icon1, icon2, icon3, icon4;
+//    private ImageView icon1, icon2, icon3, icon4;
 
 
     @Nullable
@@ -27,41 +27,41 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
 
-        icon1 = view.findViewById(R.id.homeicon);
-        icon2 = view.findViewById(R.id.chart);
-        icon3 = view.findViewById(R.id.pay);
-        icon4 = view.findViewById(R.id.profile);
+//        icon1 = view.findViewById(R.id.homeicon);
+//        icon2 = view.findViewById(R.id.chart);
+//        icon3 = view.findViewById(R.id.pay);
+//        icon4 = view.findViewById(R.id.profile);
         LinearLayout help_button = view.findViewById(R.id.help_button);
         LinearLayout conditions_button = view.findViewById(R.id.term_and_conditions_button);
 
-
-        icon1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                navigateToFragment(0);
-            }
-        });
-
-        icon2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                navigateToFragment(1);
-            }
-        });
-
-        icon3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                navigateToFragment(2);
-            }
-        });
-
-        icon4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                navigateToFragment(3);
-            }
-        });
+//
+//        icon1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View arg0) {
+//                navigateToFragment(0);
+//            }
+//        });
+//
+//        icon2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View arg0) {
+//                navigateToFragment(1);
+//            }
+//        });
+//
+//        icon3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View arg0) {
+//                navigateToFragment(2);
+//            }
+//        });
+//
+//        icon4.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View arg0) {
+//                navigateToFragment(3);
+//            }
+//        });
 
         help_button.setOnClickListener(v -> {
             Log.i("Test", "Get Button");

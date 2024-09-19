@@ -26,7 +26,7 @@ import vn.edu.usth.stockdashboard.CompanyStockItem;
 
 public class ChartFragment extends Fragment {
     private RecyclerView recyclerView;
-    private ImageView icon1, icon2, icon3, icon4;
+//    private ImageView icon1, icon2, icon3, icon4;
     private MyAdapter myAdapter;
     private List<CompanyStockItem> mostViewedItems, topGainersItems, topLosersItems;
     private TextView MostViewed, TopGainers, TopLosers;
@@ -67,39 +67,39 @@ public class ChartFragment extends Fragment {
         });
 
 
-        icon1 = view.findViewById(R.id.homeicon);
-        icon2 = view.findViewById(R.id.chart);
-        icon3 = view.findViewById(R.id.pay);
-        icon4 = view.findViewById(R.id.profile);
-
-
-        icon1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                navigateToFragment(0);
-            }
-        });
-
-        icon2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                navigateToFragment(1);
-            }
-        });
-
-        icon3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                navigateToFragment(2);
-            }
-        });
-
-        icon4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                navigateToFragment(3);
-            }
-        });
+//        icon1 = view.findViewById(R.id.homeicon);
+//        icon2 = view.findViewById(R.id.chart);
+//        icon3 = view.findViewById(R.id.pay);
+//        icon4 = view.findViewById(R.id.profile);
+//
+//
+//        icon1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View arg0) {
+//                navigateToFragment(0);
+//            }
+//        });
+//
+//        icon2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View arg0) {
+//                navigateToFragment(1);
+//            }
+//        });
+//
+//        icon3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View arg0) {
+//                navigateToFragment(2);
+//            }
+//        });
+//
+//        icon4.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View arg0) {
+//                navigateToFragment(3);
+//            }
+//        });
 
         myAdapter = new MyAdapter(mostViewedItems, clickedItem -> moveToDetailActivity(clickedItem));
         recyclerView = view.findViewById(R.id.recycle_view);
