@@ -5,101 +5,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1E2632"
     tools:context=".MainActivity">
-
-    <ImageView
-        android:id="@+id/imgLogin"
-        android:layout_width="370dp"
-        android:layout_height="202dp"
-        android:layout_marginTop="96dp"
-        android:src="@drawable/ic_login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.536"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textENG"
-        android:layout_width="75dp"
-        android:layout_height="39dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/light_gray_bg"
-        android:drawableStart="@drawable/ic_eng"
-        android:drawablePadding="8dp"
-        android:text="ENG"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/imgLogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.506" />
-
-    <TextView
-        android:id="@+id/textLogin"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Login"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="@+id/imgLogin"
-        app:layout_constraintTop_toBottomOf="@+id/imgLogin" />
-
-    <TextView
-        android:id="@+id/textDescrip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Please sign in to continue."
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/textLogin"
-        app:layout_constraintTop_toBottomOf="@+id/textLogin" />
-
-    <EditText
-        android:id="@+id/txtUsername"
-        android:layout_width="369dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/light_gray_bg"
-        android:drawableStart="@drawable/ic_user"
-        android:drawablePadding="8dp"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="text"
-        android:padding="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textLogin"
-        app:layout_constraintTop_toBottomOf="@+id/textDescrip" />
-
-    <EditText
-        android:id="@+id/txtPassword"
-        android:layout_width="368dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/light_gray_bg"
-        android:drawableStart="@drawable/ic_lock"
-        android:drawablePadding="8dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:padding="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/txtUsername"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txtUsername"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
-
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="LOGIN TO YOUR ACCOUNT"
-        app:layout_constraintEnd_toEndOf="@+id/txtPassword"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txtPassword"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
