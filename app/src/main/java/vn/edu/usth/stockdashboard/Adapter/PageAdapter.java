@@ -12,7 +12,7 @@ import vn.edu.usth.stockdashboard.AppFragment.WalletFragment;
 public class PageAdapter extends FragmentPagerAdapter {
 
     private final int PAGE_COUNT =4;
-    private String titles[]= new String[] {"Hanoi", "Paris","Toulouse"};
+//    private String titles[]= new String[] {"Hanoi", "Paris","Toulouse"};
     public PageAdapter(FragmentManager fm) {
         super(fm);
     }
@@ -32,10 +32,10 @@ public class PageAdapter extends FragmentPagerAdapter {
     }
 
 
-    @Override
-    public CharSequence getPageTitle(int page){
-        //returnsatabtitlecorrespondingtothespecifiedpage
-        return titles[page];
-    }
+//    @Override
+//    public CharSequence getPageTitle(int page){
+//        //returnsatabtitlecorrespondingtothespecifiedpage
+//        return titles[page];
+//    }
 
 }
