@@ -11,6 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.tabs.TabLayout;
+
+import java.util.Objects;
+
 import vn.edu.usth.stockdashboard.Adapter.PageAdapter;
 import vn.edu.usth.stockdashboard.MainActivity;
 import vn.edu.usth.stockdashboard.R;
@@ -52,7 +56,13 @@ public class MainAppFragment extends Fragment {
         this.pager = (ViewPager) view.findViewById(R.id.pager);
         this.pager.setOffscreenPageLimit(4);
         this.pager.setAdapter(adapter);
+        TabLayout tabLayout = view.findViewById(R.id.tab_layout);
+        tabLayout.setupWithViewPager(pager);
 
+        Objects.requireNonNull(tabLayout.getTabAt(0)).setIcon(R.drawable.home);
+        Objects.requireNonNull(tabLayout.getTabAt(1)).setIcon(R.drawable.chart);
+        Objects.requireNonNull(tabLayout.getTabAt(2)).setIcon(R.drawable.pay);
+        Objects.requireNonNull(tabLayout.getTabAt(3)).setIcon(R.drawable.profile);
         return view;
     }
 
