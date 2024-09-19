@@ -59,6 +59,4 @@ public class MainAppFragment extends Fragment {
     public void setFragment(int page){
         this.pager.setCurrentItem(page);
     }
-
-
 }

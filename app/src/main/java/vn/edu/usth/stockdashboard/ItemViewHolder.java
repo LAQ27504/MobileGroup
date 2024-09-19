@@ -34,6 +34,7 @@ public class ItemViewHolder extends RecyclerView.ViewHolder {
 
     public ItemViewHolder(@NonNull View itemView) {
         super(itemView);
+
         cardView = itemView.findViewById(R.id.cardview);
         companyLogo = itemView.findViewById(R.id.logo_view);
         imageView2 = itemView.findViewById(R.id.item_chart);

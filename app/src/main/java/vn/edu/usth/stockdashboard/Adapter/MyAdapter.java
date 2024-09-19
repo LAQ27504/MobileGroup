@@ -56,6 +56,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         });
 
     }
+
     public void updateList(List<CompanyStockItem> newList) {
         this.itemList = newList;
         notifyDataSetChanged();  // Refresh RecyclerView

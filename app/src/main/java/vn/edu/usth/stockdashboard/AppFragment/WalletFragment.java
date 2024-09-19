@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vn.edu.usth.stockdashboard.Adapter.MyAdapter3;
-import vn.edu.usth.stockdashboard.DetailTransaction;
+import vn.edu.usth.stockdashboard.DetailTransactionActivity;
 import vn.edu.usth.stockdashboard.R;
 import vn.edu.usth.stockdashboard.PurchaseItem;
 
@@ -79,7 +79,7 @@ public class WalletFragment extends Fragment {
 
 
         myAdapter = new MyAdapter3(itemList, clickedItem -> {
-            Intent intent = new Intent(getActivity(), DetailTransaction.class);
+            Intent intent = new Intent(getActivity(), DetailTransactionActivity.class);
             intent.putExtra("text1", clickedItem.getAmount());
             intent.putExtra("text2", clickedItem.getDate());
             intent.putExtra("text3", clickedItem.getBuy());

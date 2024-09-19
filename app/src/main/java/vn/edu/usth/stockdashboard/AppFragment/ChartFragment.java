@@ -21,7 +21,6 @@ import java.util.List;
 
 import vn.edu.usth.stockdashboard.Adapter.MyAdapter;
 import vn.edu.usth.stockdashboard.DetailActivity;
-import vn.edu.usth.stockdashboard.Adapter.MyAdapter2;
 import vn.edu.usth.stockdashboard.R;
 import vn.edu.usth.stockdashboard.CompanyStockItem;
 

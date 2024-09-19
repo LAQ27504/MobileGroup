@@ -1,6 +1,5 @@
 package vn.edu.usth.stockdashboard;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -8,7 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class DetailTransaction extends AppCompatActivity {
+public class DetailTransactionActivity extends AppCompatActivity {
     private TextView text1, text2, text3,text4, text5 ;
     private ImageView backButton;
     private ImageView icon1, icon2, icon3, icon4;
