@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import vn.edu.usth.stockdashboard.MainActivity;
 import vn.edu.usth.stockdashboard.R;
 
 /**
@@ -26,12 +27,15 @@ public class NotificationFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private int previousPage;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    public NotificationFragment() {
+    public NotificationFragment(int previousPage) {
         // Required empty public constructor
+        this.previousPage = previousPage;
     }
 
     /**
@@ -44,7 +48,7 @@ public class NotificationFragment extends Fragment {
      */
     // TODO: Rename and change types and number of parameters
     public static NotificationFragment newInstance(String param1, String param2) {
-        NotificationFragment fragment = new NotificationFragment();
+        NotificationFragment fragment = new NotificationFragment(0);
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -70,10 +74,18 @@ public class NotificationFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_notification, container, false);
         ImageButton backButton = view.findViewById(R.id.backButton);
         backButton.setOnClickListener(v -> {
-            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_noti, new HomeFragment());
-            transaction.commit();
+            switchFragment(this.previousPage);
         });
         return view;
+    }
+
+    public void switchFragment(int page){
+        MainActivity.getInstance().getMainAppFragment().setFragment(page);
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.detach(this);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
     }
 }

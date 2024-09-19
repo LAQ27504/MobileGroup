@@ -59,7 +59,7 @@ public class TermsAndConditionsFragment extends Fragment {
         ImageButton notiButton = view.findViewById(R.id.notiButton);
         notiButton.setOnClickListener(v -> {
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-            transaction.replace(R.id.terms_and_conditions, new NotificationFragment());
+            transaction.add(R.id.terms_and_conditions, new NotificationFragment(3));
             transaction.addToBackStack(null);
             transaction.commit();
         });

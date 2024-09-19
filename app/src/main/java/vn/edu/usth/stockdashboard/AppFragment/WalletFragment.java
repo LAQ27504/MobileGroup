@@ -93,7 +93,7 @@ public class WalletFragment extends Fragment {
         ImageButton notiButton = view.findViewById(R.id.notiButton);
         notiButton.setOnClickListener(v -> {
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container, new NotificationFragment());
+            transaction.add(R.id.fragment_container, new NotificationFragment(2));
             transaction.addToBackStack(null);
             transaction.commit();
         });

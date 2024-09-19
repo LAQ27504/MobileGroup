@@ -60,7 +60,7 @@ public class HelpAndResourcesFragment extends Fragment {
         ImageButton notiButton = view.findViewById(R.id.notiButton);
         notiButton.setOnClickListener(v -> {
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-            transaction.replace(R.id.help_and_resources, new NotificationFragment());
+            transaction.add(R.id.help_and_resources, new NotificationFragment(3));
             transaction.addToBackStack(null);
             transaction.commit();
         });
