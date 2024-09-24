@@ -47,7 +47,6 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
         holder.imageView.setImageResource(currentItem.getImageID());
         holder.imageView2.setImageResource(currentItem.getChart());
         holder.imageView3.setImageResource(currentItem.getPercent());
-
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {
                 listener.onItemClick(currentItem); // Passing the entire item object
