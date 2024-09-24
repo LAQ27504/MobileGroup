@@ -33,6 +33,7 @@ public class ProfileFragment extends Fragment {
 //        icon4 = view.findViewById(R.id.profile);
         LinearLayout help_button = view.findViewById(R.id.help_button);
         LinearLayout conditions_button = view.findViewById(R.id.term_and_conditions_button);
+        LinearLayout logout_button = view.findViewById(R.id.logout_button);
 
 //
 //        icon1.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +72,15 @@ public class ProfileFragment extends Fragment {
         conditions_button.setOnClickListener(v -> {
             Log.i("Test", "Get condition Button");
             switchFragment(new TermsAndConditionsFragment());
+        });
+
+        logout_button.setOnClickListener(v -> {
+            Log.i("Test", "Get condition Button");
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.fragment_container, new LoginFragment());
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
         });
         return view;
     }
