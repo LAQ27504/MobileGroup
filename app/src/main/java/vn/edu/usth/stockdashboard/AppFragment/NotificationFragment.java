@@ -3,40 +3,39 @@ package vn.edu.usth.stockdashboard.AppFragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.ImageButton;
 
 import vn.edu.usth.stockdashboard.MainActivity;
 import vn.edu.usth.stockdashboard.R;
 
-
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link LoginFragment#newInstance} factory method to
+ * Use the {@link NotificationFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class LoginFragment extends Fragment {
-    private EditText txtUsername;
-    private EditText txtPassword;
-    private Button btnLogin;
+public class NotificationFragment extends Fragment {
+    private ImageButton backButton;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private int previousPage;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    public LoginFragment() {
+    public NotificationFragment(int previousPage) {
         // Required empty public constructor
+        this.previousPage = previousPage;
     }
 
     /**
@@ -45,11 +44,11 @@ public class LoginFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment LoginFragment.
+     * @return A new instance of fragment NotificationFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static LoginFragment newInstance(String param1, String param2) {
-        LoginFragment fragment = new LoginFragment();
+    public static NotificationFragment newInstance(String param1, String param2) {
+        NotificationFragment fragment = new NotificationFragment(0);
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -69,26 +68,24 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_login, container, false);
+        // Inflate the layout for this fragment
+        //return inflater.inflate(R.layout.fragment_notification, container, false);
 
-        // Map properties in fragment_login.xml
-        txtUsername = view.findViewById(R.id.txtUsername);
-        txtPassword = view.findViewById(R.id.txtPassword);
-        btnLogin = view.findViewById(R.id.btnLogin);
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Show small "alert"
-                String username = txtUsername.getText().toString().trim();
-                Toast.makeText(getActivity(), "Hello " + username, Toast.LENGTH_LONG).show();
-
-                // Login sucessfully -> replace w mainapp
-                getParentFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, MainActivity.getInstance().getMainAppFragment())
-                        .commit();
-            }
+        View view = inflater.inflate(R.layout.fragment_notification, container, false);
+        ImageButton backButton = view.findViewById(R.id.backButton);
+        backButton.setOnClickListener(v -> {
+            switchFragment(this.previousPage);
         });
         return view;
+    }
+
+    public void switchFragment(int page){
+        MainActivity.getInstance().getMainAppFragment().setFragment(page);
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.detach(this);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
     }
 }

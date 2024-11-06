@@ -12,7 +12,7 @@ import vn.edu.usth.stockdashboard.AppFragment.WalletFragment;
 public class PageAdapter extends FragmentPagerAdapter {
 
     private final int PAGE_COUNT =4;
-//    private String titles[]= new String[] {"Tab1", "Tab2","Tab3", "Tab4"};
+//    private String titles[]= new String[] {"Hanoi", "Paris","Toulouse"};
     public PageAdapter(FragmentManager fm) {
         super(fm);
     }

@@ -1,41 +1,56 @@
 package vn.edu.usth.stockdashboard;
 
 public class CompanyStockItem {
-    private int chart;
-    private int imageID;
-    private int percent;
-    private int fullImage;
-    private int graphImage;
+    private String logoUrl;
 
-    public CompanyStockItem(int imageID, int chart, int percent, int fullImage, int graphImage) {
-        this.imageID = imageID;
-        this.chart = chart;
-        this.percent = percent;
-        this.fullImage = fullImage;
-        this.graphImage = graphImage;
+    public String getLogoUrl() {
+        return logoUrl;
     }
 
-    public int getImageID() {
-        return imageID;
+    public void setLogoUrl(String logoUrl) {
+        this.logoUrl = logoUrl;
     }
 
-    public int getPercent() {
-        return percent;
+    public String getStockName() {
+        return stockName;
     }
 
-    public int getChart() {
-        return chart;
+    public void setStockName(String stockName) {
+        this.stockName = stockName;
     }
 
-    public void setChart(int chart) {
-        this.chart = chart;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public int getFullImage() {
-        return fullImage;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
-    public int getGraphImage() {
-        return graphImage;
+    public String getPrice() {
+        return price;
     }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getChangePercent() {
+        return changePercent;
+    }
+
+    public void setChangePercent(String changePercent) {
+        this.changePercent = changePercent;
+    }
+
+    private String stockName;
+    private String companyName;
+    private String price;
+    private String changePercent;
+
+    public CompanyStockItem(String stockName) {
+        this.stockName = stockName;
+    }
+
+
 }

@@ -15,12 +15,9 @@ import vn.edu.usth.stockdashboard.R;
 import vn.edu.usth.stockdashboard.PurchaseItem;
 
 public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
+
     private List<PurchaseItem> itemList;
-
-    public MyAdapter3(List<PurchaseItem> itemList) {
-        this.itemList = itemList;
-    }
-
+    private OnItemClickListener listener;
 
     @NonNull
     @Override
@@ -30,19 +27,28 @@ public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
     }
 
     @Override
-    public int getItemCount(){
-        return itemList.size();
-    }
-
-    @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        PurchaseItem item = itemList.get(position);
+        PurchaseItem item = this.itemList.get(position);
         holder.textView.setText(item.getBuy());
         holder.textView2.setText(item.getDate());
         holder.textView3.setText(item.getAmount());
 
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onItemClick(item); // Passing the entire item object
+            }
+        });
     }
 
+    @Override
+    public int getItemCount() {
+        return this.itemList.size();
+    }
+
+    public MyAdapter3(List<PurchaseItem> itemList, OnItemClickListener listener) {
+        this.itemList = itemList;
+        this.listener = listener;
+    }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         private CardView cardView;
@@ -57,4 +63,10 @@ public class MyAdapter3 extends RecyclerView.Adapter<MyAdapter3.MyViewHolder> {
             textView3=itemView.findViewById(R.id.text3);
         }
     }
+
+
+
+    public interface OnItemClickListener {
+        void onItemClick(PurchaseItem clikedItem);
+}
 }

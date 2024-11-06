@@ -1,29 +1,23 @@
 package vn.edu.usth.stockdashboard.AppFragment;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.Objects;
 
 import vn.edu.usth.stockdashboard.Adapter.PageAdapter;
 import vn.edu.usth.stockdashboard.MainActivity;
 import vn.edu.usth.stockdashboard.R;
-
 
 
 public class MainAppFragment extends Fragment {
@@ -39,7 +33,7 @@ public class MainAppFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private ViewPager pager;
+    public ViewPager pager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,8 +54,8 @@ public class MainAppFragment extends Fragment {
 
         PagerAdapter adapter = new PageAdapter(getActivity().getSupportFragmentManager());
         this.pager = (ViewPager) view.findViewById(R.id.pager);
-        pager.setOffscreenPageLimit(3);
-        pager.setAdapter(adapter);
+        this.pager.setOffscreenPageLimit(4);
+        this.pager.setAdapter(adapter);
         TabLayout tabLayout = view.findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(pager);
 
@@ -69,11 +63,10 @@ public class MainAppFragment extends Fragment {
         Objects.requireNonNull(tabLayout.getTabAt(1)).setIcon(R.drawable.chart);
         Objects.requireNonNull(tabLayout.getTabAt(2)).setIcon(R.drawable.pay);
         Objects.requireNonNull(tabLayout.getTabAt(3)).setIcon(R.drawable.profile);
-
         return view;
     }
 
-    public void setFragment(int page) {
+    public void setFragment(int page){
         this.pager.setCurrentItem(page);
     }
 }

@@ -59,12 +59,13 @@
                 app:layout_constraintTop_toTopOf="@+id/backbutton"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <ImageView
-                android:id="@+id/imageView4"
+            <ImageButton
+                android:id="@+id/notiButton"
                 android:layout_width="45dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="16dp"
                 android:src="@drawable/noti"
+                android:backgroundTint="@color/transparent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.951"
                 app:layout_constraintStart_toStartOf="parent"
@@ -80,6 +81,7 @@
                 tools:layout_editor_absoluteX="0dp">
 
                 <TextView
+                    android:id="@+id/hourly"
                     android:layout_width="128dp"
                     android:layout_height="43dp"
                     android:layout_marginTop="8dp"
@@ -90,35 +92,37 @@
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.065"
+                    app:layout_constraintHorizontal_bias="0.063"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:id="@+id/weekly"
+                    android:layout_width="128dp"
+                    android:layout_height="43dp"
+                    android:layout_marginTop="8dp"
                     android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:text="Weekly"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.867"
+                    app:layout_constraintHorizontal_bias="0.936"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:id="@+id/daily"
+                    android:layout_width="128dp"
+                    android:layout_height="43dp"
+                    android:layout_marginTop="8dp"
                     android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:text="Daily"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.533"
+                    app:layout_constraintHorizontal_bias="0.541"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
