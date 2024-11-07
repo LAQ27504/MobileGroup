@@ -15,4 +15,5 @@
     <color name="option_background">#585F6E</color>
     <color name="menu_background">#303847</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="company_name">#999999</color>
 </resources>

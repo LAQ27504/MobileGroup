@@ -37,7 +37,7 @@ import vn.edu.usth.stockdashboard.CompanyStockItem;
 
 public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
-//    private ImageView icon1, icon2, icon3, icon4;
+    //    private ImageView icon1, icon2, icon3, icon4;
     private MyAdapter myAdapter;
     private ImageLoader imageLoader;
     private List<CompanyStockItem> stockList = new ArrayList<>();
@@ -147,8 +147,10 @@ public class HomeFragment extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 try {
+                    String stockNameString = response.getString("Symbol");
                     String companyString = response.getString("Name");
-                    stockItem.setStockName(companyString);
+                    stockItem.setStockName(stockNameString);
+                    stockItem.setCompanyName(companyString);
                     myAdapter.notifyDataSetChanged();
                 } catch (JSONException e) {
                     e.printStackTrace();

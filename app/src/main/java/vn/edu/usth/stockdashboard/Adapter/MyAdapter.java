@@ -1,5 +1,6 @@
 package vn.edu.usth.stockdashboard.Adapter;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +57,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.stockPrice.setText(currentItem.getPrice());
         holder.changePercentage.setText(currentItem.getChangePercent());
         holder.logo.setImageUrl(currentItem.getLogoUrl(), imageLoader);
+
+        String percentString = currentItem.getChangePercent();
+        if (percentString != null && !percentString.isEmpty()) {
+            try {
+                double percentValue = Double.parseDouble(percentString.trim());
+                if (percentValue > 0) {
+                    holder.stockPrice.setTextColor(Color.parseColor("#32D49D"));
+                } else {
+                    holder.stockPrice.setTextColor(Color.parseColor("#FF5353"));
+                }
+            } catch (NumberFormatException e) {
+                holder.stockPrice.setTextColor(Color.WHITE);
+            }
+        }
+
 
 //        holder.itemView.setOnClickListener(v -> {
 //            if (listener != null) {

@@ -6,78 +6,86 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    app:cardElevation="0dp"
-    app:cardBackgroundColor="@android:color/transparent"
-    >
+    app:cardElevation="4dp"
+    android:layout_margin="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_margin="10dp" >
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="12dp">
 
-
+        <!-- Logo Image -->
         <com.android.volley.toolbox.NetworkImageView
             android:id="@+id/logo_view"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.046"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.533" />
-
-        <TextView
-            android:id="@+id/price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="price"
-            app:layout_constraintEnd_toStartOf="@+id/item_percent"
-            app:layout_constraintHorizontal_bias="0.754"
-            app:layout_constraintStart_toEndOf="@+id/logo_view"
-            tools:layout_editor_absoluteY="35dp" />
-
-        <TextView
-            android:id="@+id/item_percent"
-            android:layout_width="80dp"
-            android:layout_height="56dp"
-            android:layout_marginTop="16dp"
-            android:scaleType="fitCenter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.977"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Stock Name -->
+
+        <!-- Company Name -->
         <TextView
             android:id="@+id/stock_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginEnd="36dp"
-            android:text="TextView"
+            android:layout_marginStart="12dp"
+            android:text="Stock Name"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/item_chart"
-            app:layout_constraintHorizontal_bias="0.659"
             app:layout_constraintStart_toEndOf="@+id/logo_view"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.262" />
+            app:layout_constraintVertical_bias="0.093" />
+
+        <!-- Price -->
 
         <TextView
             android:id="@+id/company_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="4dp"
-            android:text="TextView"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:text="Company Name"
+            android:textColor="@color/company_name"
+            android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/item_chart"
-            app:layout_constraintHorizontal_bias="0.373"
             app:layout_constraintStart_toEndOf="@+id/logo_view"
             app:layout_constraintTop_toBottomOf="@+id/stock_name"
-            app:layout_constraintVertical_bias="0.272" />
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/item_percent"
+            app:layout_constraintStart_toEndOf="@+id/stock_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.4" />
+
+        <!-- Percentage Change -->
+        <TextView
+            android:id="@+id/item_percent"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text=" +12.34%"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/price"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.666" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
-
