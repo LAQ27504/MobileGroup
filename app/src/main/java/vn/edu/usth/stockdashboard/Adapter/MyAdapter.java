@@ -22,7 +22,7 @@ import vn.edu.usth.stockdashboard.R;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private List<CompanyStockItem> itemList;
-//    private OnItemClickListener listener;
+    //    private OnItemClickListener listener;
     private ImageLoader imageLoader;
 
 //    public interface OnItemClickListener {
@@ -54,8 +54,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         holder.stockName.setText(currentItem.getStockName());
         holder.companyName.setText(currentItem.getCompanyName());
-        holder.stockPrice.setText(currentItem.getPrice());
-        holder.changePercentage.setText(currentItem.getChangePercent());
+        holder.stockPrice.setText("$" + currentItem.getPrice());
+        holder.changePercentage.setText(currentItem.getChangePercent() + "%");
         holder.logo.setImageUrl(currentItem.getLogoUrl(), imageLoader);
 
         String percentString = currentItem.getChangePercent();
@@ -63,12 +63,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             try {
                 double percentValue = Double.parseDouble(percentString.trim());
                 if (percentValue > 0) {
-                    holder.stockPrice.setTextColor(Color.parseColor("#32D49D"));
+                    holder.changePercentage.setTextColor(Color.parseColor("#32D49D"));
+                    holder.percentIcon.setImageResource(R.drawable.up);
                 } else {
-                    holder.stockPrice.setTextColor(Color.parseColor("#FF5353"));
+                    holder.changePercentage.setTextColor(Color.parseColor("#FF5353"));
+                    holder.percentIcon.setImageResource(R.drawable.down);
                 }
             } catch (NumberFormatException e) {
-                holder.stockPrice.setTextColor(Color.WHITE);
+                holder.changePercentage.setTextColor(Color.WHITE);
             }
         }
 
@@ -89,6 +91,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     class MyViewHolder extends RecyclerView.ViewHolder {
         private NetworkImageView logo;
         TextView stockName, companyName, stockPrice, changePercentage;
+        ImageView percentIcon;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             logo = itemView.findViewById(R.id.logo_view);
@@ -96,6 +99,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             companyName = itemView.findViewById(R.id.company_name);
             stockPrice = itemView.findViewById(R.id.price);
             changePercentage = itemView.findViewById(R.id.item_percent);
+            percentIcon = itemView.findViewById(R.id.percent_icon);
         }
     }
 }

@@ -23,6 +23,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -41,8 +42,8 @@ public class HomeFragment extends Fragment {
     private MyAdapter myAdapter;
     private ImageLoader imageLoader;
     private List<CompanyStockItem> stockList = new ArrayList<>();
-    private static final String ALPHA_VANTAGE_API_KEY = "WTJHO89LU7CUYSIC";
-    private static final String FINNHUB_API_KEY = "csko419r01qhc8s4icvgcsko419r01qhc8s4id00";
+    private static final String ALPHA_VANTAGE_API_KEY = "NW7JCG8GLL1T7ILF";
+    private static final String FINNHUB_API_KEY = "csmd299r01qn12jeqgi0csmd299r01qn12jeqgig";
 
 
     @Nullable
@@ -141,17 +142,25 @@ public class HomeFragment extends Fragment {
     }
 
     private void fetchCompanyName(CompanyStockItem stockItem) {
-        String url = "https://www.alphavantage.co/query?function=OVERVIEW&symbol=" + stockItem.getStockName() + "&apikey=" + ALPHA_VANTAGE_API_KEY;
+        String url = "https://finnhub.io/api/v1/search?q=" + stockItem.getStockName() + "&token=" + FINNHUB_API_KEY;
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                Log.d("CompanyNameResponse", response.toString());
+
                 try {
-                    String stockNameString = response.getString("Symbol");
-                    String companyString = response.getString("Name");
-                    stockItem.setStockName(stockNameString);
-                    stockItem.setCompanyName(companyString);
-                    myAdapter.notifyDataSetChanged();
+                    JSONArray resultArray = response.getJSONArray("result");
+                    if (resultArray.length() > 0) {
+                        JSONObject firstResult = resultArray.getJSONObject(0);
+                        String stockNameString = firstResult.getString("symbol");
+                        String companyString = firstResult.getString("description");
+                        stockItem.setStockName(stockNameString);
+                        stockItem.setCompanyName(companyString);
+                        myAdapter.notifyDataSetChanged();
+                    } else {
+                        Log.e("HomeFragment", "No results found in the response");
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -166,15 +175,14 @@ public class HomeFragment extends Fragment {
     }
 
     private void fetchStockPriceAndPercentage(CompanyStockItem stockItem) {
-        String url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + stockItem.getStockName() + "&apikey=" + ALPHA_VANTAGE_API_KEY;
+        String url = "https://finnhub.io/api/v1/quote?symbol=" + stockItem.getStockName() + "&token=" + FINNHUB_API_KEY;
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    JSONObject globalQuote = response.getJSONObject("Global Quote");
-                    String price = globalQuote.getString("05. price");
-                    String changePercent = globalQuote.getString("10. change percent");
+                    String price = response.getString("c");
+                    String changePercent = response.getString("dp");
 
                     stockItem.setPrice(price);
                     stockItem.setChangePercent(changePercent);

@@ -1,5 +1,7 @@
 package vn.edu.usth.stockdashboard;
 
+import android.widget.ImageView;
+
 public class CompanyStockItem {
     private String logoUrl;
 
@@ -47,6 +49,16 @@ public class CompanyStockItem {
     private String companyName;
     private String price;
     private String changePercent;
+
+    public ImageView getPercent_icon() {
+        return percent_icon;
+    }
+
+    public void setPercent_icon(ImageView percent_icon) {
+        this.percent_icon = percent_icon;
+    }
+
+    private ImageView percent_icon;
 
     public CompanyStockItem(String stockName) {
         this.stockName = stockName;
