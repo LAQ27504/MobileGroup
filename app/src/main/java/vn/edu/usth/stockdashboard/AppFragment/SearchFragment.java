@@ -115,8 +115,7 @@ public class SearchFragment extends Fragment {
                 if (!stockNameString.isEmpty()) {
                     String startDate = getDate(-8);
                     String endDate = getDate(-1);
-                    fetchStockData(stockNameString);
-                    fetchStockPriceInPeriod(stockNameString, startDate, endDate);
+                    fetchStockData(stockNameString, startDate, endDate);
                 } else {
                     Toast.makeText(getContext(), "Please enter stock name", Toast.LENGTH_SHORT).show();
                 }
@@ -134,10 +133,11 @@ public class SearchFragment extends Fragment {
         return view;
     }
 
-    private void fetchStockData(String stockItem) {
+    private void fetchStockData(String stockItem, String startDate, String endDate) {
         fetchCompanyLogo(stockItem);
         fetchCompanyName(stockItem);
         fetchStockPriceAndPercentage(stockItem);
+        fetchStockPriceInPeriod(stockItem, startDate, endDate);
     }
 
     private void fetchCompanyName(String stockItem) {
@@ -180,6 +180,7 @@ public class SearchFragment extends Fragment {
             public void onResponse(JSONObject response) {
                 try {
                     String priceString = response.getString("c");
+                    double price = Double.parseDouble(priceString);
                     String changePercentString = response.getString("dp");
                     if (!changePercentString.isEmpty()) {
                         try {
@@ -195,7 +196,7 @@ public class SearchFragment extends Fragment {
                             percentage.setTextColor(Color.WHITE);
                         }
                     }
-                    stockPrice.setText("$" + priceString);
+                    stockPrice.setText(String.format("$%.1f", price));
                     percentage.setText(changePercentString + "%");
                 } catch (JSONException e) {
                     e.printStackTrace();
