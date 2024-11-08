@@ -33,6 +33,7 @@ import java.util.List;
 import vn.edu.usth.stockdashboard.DetailActivity;
 import vn.edu.usth.stockdashboard.MainActivity;
 import vn.edu.usth.stockdashboard.Adapter.MyAdapter;
+import vn.edu.usth.stockdashboard.Operation.GetAPI;
 import vn.edu.usth.stockdashboard.R;
 import vn.edu.usth.stockdashboard.CompanyStockItem;
 
@@ -109,7 +110,7 @@ public class HomeFragment extends Fragment {
             transaction.addToBackStack(null);
             transaction.commit();
         });
-
+        GetAPI test = new GetAPI(getContext());
         return view;
     }
 

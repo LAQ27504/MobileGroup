@@ -21,6 +21,7 @@ import vn.edu.usth.stockdashboard.Adapter.PageAdapter;
 import vn.edu.usth.stockdashboard.AppFragment.HomeFragment;
 import vn.edu.usth.stockdashboard.AppFragment.LoginFragment;
 import vn.edu.usth.stockdashboard.AppFragment.MainAppFragment;
+import vn.edu.usth.stockdashboard.Operation.GetAPI;
 
 public class MainActivity extends AppCompatActivity {
     private static MainActivity Instance;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public MainAppFragment getMainAppFragment() {
         return mainAppFragment;
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,5 +66,8 @@ public class MainActivity extends AppCompatActivity {
                     .replace(R.id.fragment_container, new LoginFragment())
                     .commit();
         }
+
+
     }
+
 }
