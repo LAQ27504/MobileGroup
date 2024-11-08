@@ -1,12 +1,13 @@
 package vn.edu.usth.stockdashboard.AppFragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,89 +15,104 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import vn.edu.usth.stockdashboard.DatabaseHelper;
 import vn.edu.usth.stockdashboard.MainActivity;
 import vn.edu.usth.stockdashboard.R;
 
 public class ProfileFragment extends Fragment {
-//    private ImageView icon1, icon2, icon3, icon4;
-
+    private DatabaseHelper databaseHelper;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
+        // Initialize DatabaseHelper
+        databaseHelper = new DatabaseHelper(getActivity());
 
-//        icon1 = view.findViewById(R.id.homeicon);
-//        icon2 = view.findViewById(R.id.chart);
-//        icon3 = view.findViewById(R.id.pay);
-//        icon4 = view.findViewById(R.id.profile);
-        LinearLayout help_button = view.findViewById(R.id.help_button);
-        LinearLayout conditions_button = view.findViewById(R.id.term_and_conditions_button);
-        LinearLayout logout_button = view.findViewById(R.id.logout_button);
+        // Retrieve the currently logged-in username
+        String username = databaseHelper.getLoggedInUser();
+        Log.d("ProfileFragment", "Logged-in username: " + username);
 
-//
-//        icon1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View arg0) {
-//                navigateToFragment(0);
-//            }
-//        });
-//
-//        icon2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View arg0) {
-//                navigateToFragment(1);
-//            }
-//        });
-//
-//        icon3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View arg0) {
-//                navigateToFragment(2);
-//            }
-//        });
-//
-//        icon4.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View arg0) {
-//                navigateToFragment(3);
-//            }
-//        });
+        // Retrieve full name from the database
+        String fullname = databaseHelper.getFullName(username);
+        Log.d("ProfileFragment", "Retrieved full name: " + fullname);
 
-        help_button.setOnClickListener(v -> {
-            Log.i("Test", "Get Button");
-            switchFragment(new HelpAndResourcesFragment());
-        });
+        // Set the retrieved data to the TextViews
+        TextView profileNameTextView = view.findViewById(R.id.profile_name);
+        TextView profileUsernameTextView = view.findViewById(R.id.profile_username);
 
-        conditions_button.setOnClickListener(v -> {
-            Log.i("Test", "Get condition Button");
-            switchFragment(new TermsAndConditionsFragment());
-        });
+        // Update TextViews with user data, handling potential null values
+        if (profileNameTextView != null) {
+            profileNameTextView.setText(fullname != null ? fullname : "Unknown");
+        } else {
+            Log.e("ProfileFragment", "profileNameTextView is null");
+        }
 
-        logout_button.setOnClickListener(v -> {
-            Log.i("Test", "Get condition Button");
-            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.fragment_container, new LoginFragment());
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
-        });
+        if (profileUsernameTextView != null) {
+            profileUsernameTextView.setText(username != null ? username : "Unknown User");
+        } else {
+            Log.e("ProfileFragment", "profileUsernameTextView is null");
+        }
+
+        // Set up button listeners
+        setupButtonListeners(view);
+
         return view;
     }
 
-    private void navigateToFragment(int page) {
-        MainAppFragment.getInstance().setFragment(page);
+    private void setupButtonListeners(View view) {
+        LinearLayout helpButton = view.findViewById(R.id.help_button);
+        LinearLayout conditionsButton = view.findViewById(R.id.term_and_conditions_button);
+        LinearLayout logoutButton = view.findViewById(R.id.logout_button);
+
+        if (helpButton != null) {
+            helpButton.setOnClickListener(v -> {
+                Log.i("ProfileFragment", "Help button clicked");
+                switchFragment(new HelpAndResourcesFragment());
+            });
+        } else {
+            Log.e("ProfileFragment", "helpButton is null");
+        }
+
+        if (conditionsButton != null) {
+            conditionsButton.setOnClickListener(v -> {
+                Log.i("ProfileFragment", "Terms and Conditions button clicked");
+                switchFragment(new TermsAndConditionsFragment());
+            });
+        } else {
+            Log.e("ProfileFragment", "conditionsButton is null");
+        }
+
+        if (logoutButton != null) {
+            logoutButton.setOnClickListener(v -> {
+                // Log out the user
+                databaseHelper.logout();
+                Log.d("ProfileFragment", "User logged out successfully.");
+
+                // Navigate back to LoginFragment
+                FragmentManager fragmentManager = getParentFragmentManager();
+                if (fragmentManager != null) {
+                    Intent intent = new Intent(getActivity(), MainActivity.class);
+                    startActivity(intent);
+                } else {
+                    Log.e("ProfileFragment", "FragmentManager is null");
+                }
+            });
+        } else {
+            Log.e("ProfileFragment", "logoutButton is null");
+        }
     }
 
-    private void switchFragment(Fragment fragment){
-
+    private void switchFragment(Fragment fragment) {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.fragment_container, fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        if (fragmentManager != null) {
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.addToBackStack(null); // Optionally add to back stack
+            fragmentTransaction.commit();
+        } else {
+            Log.e("ProfileFragment", "FragmentManager is null");
+        }
     }
 }
-
-
