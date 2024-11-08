@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import vn.edu.usth.stockdashboard.AppFragment.ChartFragment;
 import vn.edu.usth.stockdashboard.AppFragment.HomeFragment;
 import vn.edu.usth.stockdashboard.AppFragment.ProfileFragment;
+import vn.edu.usth.stockdashboard.AppFragment.SearchFragment;
 import vn.edu.usth.stockdashboard.AppFragment.WalletFragment;
 
 public class PageAdapter extends FragmentPagerAdapter {
@@ -24,7 +25,7 @@ public class PageAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int page){
         switch (page) {
             case 0: return new HomeFragment();
-            case 1: return new ChartFragment();
+            case 1: return new SearchFragment();
             case 2: return new WalletFragment();
             case 3: return new ProfileFragment();
         }
