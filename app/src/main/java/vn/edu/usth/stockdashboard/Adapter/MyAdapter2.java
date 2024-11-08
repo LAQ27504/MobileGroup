@@ -44,9 +44,9 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         CompanyStockItem currentItem = itemList.get(position);
 
-        holder.imageView.setImageResource(currentItem.getImageID());
-        holder.imageView2.setImageResource(currentItem.getChart());
-        holder.imageView3.setImageResource(currentItem.getPercent());
+        //holder.imageView.setImageResource(currentItem.getImageID());
+        //holder.imageView2.setImageResource(currentItem.getChart());
+        //holder.imageView3.setImageResource(currentItem.getPercent());
 
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {

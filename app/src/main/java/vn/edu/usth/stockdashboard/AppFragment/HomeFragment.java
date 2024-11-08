@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment {
     private static final String ALPHA_VANTAGE_API_KEY = "NW7JCG8GLL1T7ILF";
     private static final String FINNHUB_API_KEY = "csmd299r01qn12jeqgi0csmd299r01qn12jeqgig";
 
-
+    
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
