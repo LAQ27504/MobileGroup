@@ -81,6 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/stock_name" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="409dp"
         android:layout_height="75dp"
         android:layout_marginTop="28dp"
@@ -107,7 +108,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Stock name"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -116,8 +116,7 @@
                 android:id="@+id/company_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Company name" />
+                android:layout_marginTop="20dp" />
         </LinearLayout>
 
         <TextView
@@ -127,7 +126,6 @@
             android:layout_marginTop="25dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
-            android:text="Price"
             android:textColor="@color/white"
             android:textStyle="bold" />
 
@@ -141,10 +139,22 @@
             android:id="@+id/change_percentage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="25dp"
-            android:layout_marginEnd="10dp"
-            android:text="percentage" />
+            android:layout_marginEnd="10dp" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/price_period"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
